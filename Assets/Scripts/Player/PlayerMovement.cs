@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
-    //Das
+    //Dash
     [SerializeField] float dashCooldown = 2f;
     [SerializeField] float dashDuration = 0.5f;
     private bool isDashing = false;//
@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             TeleportToMousePosition();
             canTeleport = false;
+            lastTeleportTime = Time.time;//
             lastDashTime = Time.time;
         }
         if (!canTeleport && Time.time - lastTeleportTime >= teleportCooldown)
