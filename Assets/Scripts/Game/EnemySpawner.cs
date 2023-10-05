@@ -14,10 +14,14 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 2f;
     private bool spawningEnabled = true;
 
+    public GameObject panelToActivate;
+    public CetroController cetroController;
+
+
     private void Start()
     {
         StartCoroutine(SpawnEnemiesWithInterval());//
-        ActivatePlatforms();
+        ActivateEleccion();
     }
     private IEnumerator SpawnEnemiesWithInterval()
     {
@@ -54,8 +58,8 @@ public class EnemySpawner : MonoBehaviour
        
         Debug.Log("Enemigos Actuales: " + enemiesActuales);
 
-      
-        ActivatePlatforms();
+
+        ActivateEleccion();
     }
 
     public void EnemyKilled()
@@ -63,17 +67,26 @@ public class EnemySpawner : MonoBehaviour
         
         enemiesActuales--;
 
-       
-        ActivatePlatforms();
+
+        ActivateEleccion();
     }
 
-    private void ActivatePlatforms()
+    private void ActivateEleccion()
     {
         
         if (currentEnemies == maxEnemies && enemiesActuales == 0)
         {
-            Debug.Log("Plataformas Activadas");
-            spawningEnabled = false; 
+            Debug.Log("Panel Activado");
+            spawningEnabled = false;
+
+            if (panelToActivate != null)
+            {
+                panelToActivate.SetActive(true);
+            }
+
+            Time.timeScale = 0f;
+
+            cetroController.canShoot = false;
         }
     }
 }

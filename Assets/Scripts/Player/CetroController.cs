@@ -6,6 +6,8 @@ public class CetroController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    public bool canShoot = true;//
+
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -17,7 +19,7 @@ public class CetroController : MonoBehaviour
     }
     void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (canShoot && Input.GetButtonDown("Fire1"))
         {
             Instantiate(bulletPrefab, firePoint.position, transform.rotation);
         }
