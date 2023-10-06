@@ -14,9 +14,13 @@ public class Balrog : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool isSlowed = false;
+    private float originalMoveSpeed;
 
     private void Start()
     {
+        originalMoveSpeed = moveSpeed;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -53,6 +57,22 @@ public class Balrog : MonoBehaviour
             canAttack = false;
             Invoke("ResetAttackCooldown", attackCooldown);
         }
+        if (collision.gameObject.CompareTag("balahielo"))
+        {
+            if (!isSlowed)
+            {
+                moveSpeed /= 2;
+                isSlowed = true;
+                StartCoroutine(ResetSpeedAfterDelay());
+            }
+        }
+    }
+    private IEnumerator ResetSpeedAfterDelay()
+    {
+        yield return new WaitForSeconds(4f);
+        // Restaura la velocidad original y la variable de ralentización
+        moveSpeed = originalMoveSpeed;
+        isSlowed = false;
     }
 
     private void ResetAttackCooldown()

@@ -17,12 +17,12 @@ public class Ardeat : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private bool isSlowed = false; // Variable para rastrear si el enemigo está ralentizado
-    private float originalMoveSpeed; // Almacena la velocidad original
+    private bool isSlowed = false; 
+    private float originalMoveSpeed; 
 
     private void Start()
     {
-        originalMoveSpeed = moveSpeed; // Almacena la velocidad original
+        originalMoveSpeed = moveSpeed; 
 
         //currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -56,7 +56,7 @@ public class Ardeat : MonoBehaviour
         {
             if (!isSlowed)
             {
-                moveSpeed /= 2;
+                moveSpeed /= 3;
                 isSlowed = true;
                 StartCoroutine(ResetSpeedAfterDelay());
             }
@@ -64,7 +64,7 @@ public class Ardeat : MonoBehaviour
     }
     private IEnumerator ResetSpeedAfterDelay()
     {
-        yield return new WaitForSeconds(4f); // Espera 4 segundos
+        yield return new WaitForSeconds(4f);
         // Restaura la velocidad original y la variable de ralentización
         moveSpeed = originalMoveSpeed;
         isSlowed = false;

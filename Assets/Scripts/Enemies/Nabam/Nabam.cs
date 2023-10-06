@@ -13,8 +13,13 @@ public class Nabam : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool isSlowed = false;
+    private float originalMoveSpeed;
+
     private void Start()
     {
+
+        originalMoveSpeed = moveSpeed;
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -42,6 +47,26 @@ public class Nabam : MonoBehaviour
         {
             Explode();
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("balahielo"))
+        {
+            if (!isSlowed)
+            {
+                moveSpeed /= 5;
+                isSlowed = true;
+                StartCoroutine(ResetSpeedAfterDelay());
+            }
+        }
+    }
+
+    private IEnumerator ResetSpeedAfterDelay()
+    {
+        yield return new WaitForSeconds(4f);
+        // Restaura la velocidad original y la variable de ralentización
+        moveSpeed = originalMoveSpeed;
+        isSlowed = false;
     }
 
     private void Explode()
