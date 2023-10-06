@@ -76,17 +76,34 @@ public class EnemySpawner : MonoBehaviour
         
         if (currentEnemies == maxEnemies && enemiesActuales == 0)
         {
-            Debug.Log("Panel Activado");
+            Debug.Log("Esperando 3 segundos para activar el panel");
             spawningEnabled = false;
 
-            if (panelToActivate != null)
-            {
-                panelToActivate.SetActive(true);
-            }
+            Invoke("ActivatePanel", 3.0f);
+            //Debug.Log("Panel Activado");
+            //spawningEnabled = false;
 
-            Time.timeScale = 0f;
+            //if (panelToActivate != null)
+            //{
+            //    panelToActivate.SetActive(true);
+            //}
 
-            cetroController.canShoot = false;
+            //Time.timeScale = 0f;
+
+            //cetroController.canShoot = false;
         }
+    }
+    private void ActivatePanel()
+    {
+        Debug.Log("Panel Activado");
+
+        if (panelToActivate != null)
+        {
+            panelToActivate.SetActive(true);
+        }
+
+        Time.timeScale = 0f;
+
+        cetroController.canShoot = false;
     }
 }

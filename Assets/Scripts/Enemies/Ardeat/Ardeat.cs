@@ -17,8 +17,13 @@ public class Ardeat : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool isSlowed = false; // Variable para rastrear si el enemigo está ralentizado
+    private float originalMoveSpeed; // Almacena la velocidad original
+
     private void Start()
     {
+        originalMoveSpeed = moveSpeed; // Almacena la velocidad original
+
         //currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -44,6 +49,25 @@ public class Ardeat : MonoBehaviour
 
         transform.Translate(direction * moveSpeed * Time.deltaTime);
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("balahielo"))
+        {
+            if (!isSlowed)
+            {
+                moveSpeed /= 2;
+                isSlowed = true;
+                StartCoroutine(ResetSpeedAfterDelay());
+            }
+        }
+    }
+    private IEnumerator ResetSpeedAfterDelay()
+    {
+        yield return new WaitForSeconds(4f); // Espera 4 segundos
+        // Restaura la velocidad original y la variable de ralentización
+        moveSpeed = originalMoveSpeed;
+        isSlowed = false;
     }
     private void EnableShooting()//
     {

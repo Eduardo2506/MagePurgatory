@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     public Camera cam;
 
-    [SerializeField] private ParticleSystem particulas;
+    [SerializeField] private ParticleSystem particulasDash;
+    [SerializeField] private ParticleSystem particulasTp;
     //private SpriteRenderer spriteRenderer;//
 
     private void Start()
@@ -80,12 +81,14 @@ public class PlayerMovement : MonoBehaviour
     }
     void TeleportToMousePosition()
     {
+        particulasTp.Play();//
+        
         Vector2 teleportPosition = mousePos;
         playerTransform.position = teleportPosition;
     }
     void StartDash()
     {
-        particulas.Play();//
+        particulasDash.Play();//
         isDashing = true;
         lastDashTime = Time.time;
 
