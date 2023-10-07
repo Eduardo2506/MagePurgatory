@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - balafuego
   - balahielo
+  - balatierra
   layers:
   - Default
   - TransparentFX

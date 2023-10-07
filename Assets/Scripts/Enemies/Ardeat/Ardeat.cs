@@ -18,8 +18,9 @@ public class Ardeat : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private bool isSlowed = false; 
-    private float originalMoveSpeed; 
+    private float originalMoveSpeed;
 
+    private bool isFrozen = false;
     private void Start()
     {
         originalMoveSpeed = moveSpeed; 
@@ -35,19 +36,36 @@ public class Ardeat : MonoBehaviour
 
     private void Update()
     {
-        Vector2 direction = player.position - transform.position;
-        direction.Normalize();
-
-        if (direction.x < 0)
+        if (!isFrozen)
         {
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-        }
+            Vector2 direction = player.position - transform.position;
+            direction.Normalize();
 
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
+            if (direction.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        }
+        //Vector2 direction = player.position - transform.position;
+        //direction.Normalize();
+
+        //if (direction.x < 0)
+        //{
+        //    spriteRenderer.flipX = true;
+        //}
+        //else
+        //{
+        //    spriteRenderer.flipX = false;
+        //}
+
+        //transform.Translate(direction * moveSpeed * Time.deltaTime);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,11 +79,27 @@ public class Ardeat : MonoBehaviour
                 StartCoroutine(ResetSpeedAfterDelay());
             }
         }
+        if (collision.gameObject.CompareTag("balatierra"))
+        {
+            FreezeEnemy();
+        }
+    }
+    private void FreezeEnemy()
+    {
+        isFrozen = true;
+        moveSpeed = 0f;
+
+        StartCoroutine(UnfreezeAfterDelay(2f));
+    }
+    private IEnumerator UnfreezeAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isFrozen = false;
+        moveSpeed = originalMoveSpeed;
     }
     private IEnumerator ResetSpeedAfterDelay()
     {
         yield return new WaitForSeconds(4f);
-        // Restaura la velocidad original y la variable de ralentización
         moveSpeed = originalMoveSpeed;
         isSlowed = false;
     }

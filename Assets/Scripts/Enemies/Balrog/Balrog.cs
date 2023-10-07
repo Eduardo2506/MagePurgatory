@@ -17,6 +17,9 @@ public class Balrog : MonoBehaviour
     private bool isSlowed = false;
     private float originalMoveSpeed;
 
+    private bool isFrozen = false;
+
+
     private void Start()
     {
         originalMoveSpeed = moveSpeed;
@@ -27,7 +30,7 @@ public class Balrog : MonoBehaviour
 
     private void Update()
     {
-        if (canAttack)
+        if (canAttack && !isFrozen)
         {
 
             Vector2 direction = player.position - transform.position;
@@ -66,11 +69,30 @@ public class Balrog : MonoBehaviour
                 StartCoroutine(ResetSpeedAfterDelay());
             }
         }
+        if (collision.gameObject.CompareTag("balatierra"))
+        {
+            FreezeEnemy(); 
+        }
     }
+    private void FreezeEnemy()
+    {
+        isFrozen = true;
+        moveSpeed = 0f;
+
+        
+        StartCoroutine(UnfreezeAfterDelay(2f));
+    }
+
+    private IEnumerator UnfreezeAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isFrozen = false;
+        moveSpeed = originalMoveSpeed;
+    }
+
     private IEnumerator ResetSpeedAfterDelay()
     {
         yield return new WaitForSeconds(4f);
-        // Restaura la velocidad original y la variable de ralentización
         moveSpeed = originalMoveSpeed;
         isSlowed = false;
     }

@@ -16,6 +16,8 @@ public class Nabam : MonoBehaviour
     private bool isSlowed = false;
     private float originalMoveSpeed;
 
+    private bool isFrozen = false;
+
     private void Start()
     {
 
@@ -29,24 +31,28 @@ public class Nabam : MonoBehaviour
 
     private void Update()
     {
+        if (!isFrozen)
+        {
+
+            Vector3 direction = player.position - transform.position;
+            direction.Normalize();
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+            if (direction.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+
+            if (Vector3.Distance(transform.position, player.position) < explosionRadius)
+            {
+                Explode();
+            }
+        }
        
-        Vector3 direction = player.position - transform.position;
-        direction.Normalize();
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
-
-        if (direction.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-        }
-
-        if (Vector3.Distance(transform.position, player.position) < explosionRadius)
-        {
-            Explode();
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,7 +65,25 @@ public class Nabam : MonoBehaviour
                 StartCoroutine(ResetSpeedAfterDelay());
             }
         }
+        if (collision.gameObject.CompareTag("balatierra"))
+        {
+            FreezeEnemy();
+        }
     }
+    private void FreezeEnemy()
+    {
+        isFrozen = true;
+        moveSpeed = 0f;
+        StartCoroutine(UnfreezeAfterDelay(2f));
+    }
+
+    private IEnumerator UnfreezeAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isFrozen = false;
+        moveSpeed = originalMoveSpeed;
+    }
+
 
     private IEnumerator ResetSpeedAfterDelay()
     {
