@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
+        //mousePos.x = Mathf.Clamp(mousePos.x, -10, 10);//tp fuera del mapa
+
+        //Limite en y
+        //mousePos.y = Mathf.Clamp(mousePos.y, -10, 10);//tp fuera del mapa
+
         transform.Translate(moveInput * Time.deltaTime * moveSpeed);
 
         //if (moveInput.x < 0)

@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class LimitMousePosition : MonoBehaviour
 {
-    public float minX = 0f;
-    public float maxX = 800f;  // Cambia estos valores según tus necesidades.
-    public float minY = 0f;
-    public float maxY = 600f;  // Cambia estos valores según tus necesidades.
+    //public float minX = 0f; 
+    //public float maxX = 10f;
+    //public float minY = 0f; 
+    //public float maxY = 5f; 
 
-    private void Update()
-    {
-        // Obtén la posición actual del mouse en la pantalla
-        Vector3 mousePosition = Input.mousePosition;
+    //void Update()
+    //{
+    //    //Pos actual del mouse
+    //    Vector3 mousePosition = Input.mousePosition;
 
-        // Limita la posición del mouse a los límites especificados
-        float clampedX = Mathf.Clamp(mousePosition.x, minX, maxX);
-        float clampedY = Mathf.Clamp(mousePosition.y, minY, maxY);
+    //    //Posicion del mouse en pantalla
+    //    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        // Actualiza la posición del cursor del mouse
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;  // Desbloquea el cursor para que se pueda actualizar
+    //    //Limite en x
+    //    worldPosition.x = Mathf.Clamp(worldPosition.x, minX, maxX);
 
-        // Aplica la nueva posición del cursor
-        Cursor.position = new Vector3(clampedX, clampedY, mousePosition.z);
-    }
+    //    //Limite en y
+    //    worldPosition.y = Mathf.Clamp(worldPosition.y, minY, maxY);
+
+    //    //Nueva posicion
+    //    //transform.position = worldPosition;
+    //}
 }
