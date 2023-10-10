@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,12 +18,61 @@ public class EnemySpawner : MonoBehaviour
     public GameObject panelToActivate;
     public CetroController cetroController;
 
+    public Text textoContador;
+    public Image imagenRonda;
+
 
     private void Start()
     {
-        StartCoroutine(SpawnEnemiesWithInterval());//
+        StartCoroutine(ShowImagenIncial());
+        //StartCoroutine(StartGame());
+        //StartCoroutine(SpawnEnemiesWithInterval());//
+        //ActivateEleccion();
+    }
+    private IEnumerator ShowImagenIncial()
+    {
+        // Mostrar la imagen de inicio durante 3 segundos.
+        imagenRonda.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+
+        imagenRonda.gameObject.SetActive(false);
+
+        StartCoroutine(ShowContador());
+    }
+    private IEnumerator ShowContador()
+    {
+        // Mostrar la cuenta regresiva durante 3 segundos.
+        textoContador.gameObject.SetActive(true);
+
+        for (int i = 3; i >= 1; i--)
+        {
+            textoContador.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        textoContador.gameObject.SetActive(false);
+
+        // Comenzar a spawnear enemigos.
+        StartCoroutine(SpawnEnemiesWithInterval());
+
         ActivateEleccion();
     }
+    //private IEnumerator StartGame()
+    //{
+    //    texto.gameObject.SetActive(true);
+    //    imagen.gameObject.SetActive(true);
+
+    //    for (int i = 3; i >= 1; i--)
+    //    {
+    //        texto.text = i.ToString();
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //    texto.gameObject.SetActive(false);
+    //    imagen.gameObject.SetActive(false);
+
+    //    StartCoroutine(SpawnEnemiesWithInterval());
+    //    ActivateEleccion();
+    //}
     private IEnumerator SpawnEnemiesWithInterval()
     {
         while (spawningEnabled)
