@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ShowImagenIncial());
+        //StartCoroutine(ShowImagenIncial());//
         //StartCoroutine(StartGame());
         //StartCoroutine(SpawnEnemiesWithInterval());//
         //ActivateEleccion();
@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
         // Comenzar a spawnear enemigos.
         StartCoroutine(SpawnEnemiesWithInterval());
 
-        ActivateEleccion();
+        //ActivateEleccion();
     }
     //private IEnumerator StartGame()
     //{
@@ -73,9 +73,9 @@ public class EnemySpawner : MonoBehaviour
     //    StartCoroutine(SpawnEnemiesWithInterval());
     //    ActivateEleccion();
     //}
-    private IEnumerator SpawnEnemiesWithInterval()
+    public IEnumerator SpawnEnemiesWithInterval()
     {
-        while (spawningEnabled)
+        while (true)
         {
             if (currentEnemies < maxEnemies)
             {
@@ -121,7 +121,7 @@ public class EnemySpawner : MonoBehaviour
         ActivateEleccion();
     }
 
-    private void ActivateEleccion()
+    public void ActivateEleccion()
     {
         
         if (currentEnemies == maxEnemies && enemiesActuales == 0)
@@ -145,15 +145,38 @@ public class EnemySpawner : MonoBehaviour
     }
     private void ActivatePanel()
     {
+        Card[] allCards = Resources.FindObjectsOfTypeAll<Card>();
+
+        ShuffleArray(allCards);
+
         Debug.Log("Panel Activado");
 
         if (panelToActivate != null)
         {
             panelToActivate.SetActive(true);
+
+            for (int i = 0; i < Mathf.Min(3, allCards.Length); i++)
+            {
+                CardDisplay cardDisplay = panelToActivate.transform.GetChild(i).GetComponent<CardDisplay>();
+                cardDisplay.card = allCards[i];
+                cardDisplay.nameText.text = allCards[i].name;
+                cardDisplay.descriptionText.text = allCards[i].description;
+                cardDisplay.artworkImage.sprite = allCards[i].artwork;
+            }
         }
 
         Time.timeScale = 0f;
 
         cetroController.canShoot = false;
+    }
+    private void ShuffleArray<T>(T[] array)
+    {
+        for (int i = array.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            T temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
 }

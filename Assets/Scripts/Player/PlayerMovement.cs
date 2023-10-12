@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     //Dash
-    [SerializeField] float dashCooldown = 2f;
+    [SerializeField] public float dashCooldown = 2f;
     [SerializeField] float dashDuration = 0.5f;
     private bool isDashing = false;//
     private float lastDashTime;

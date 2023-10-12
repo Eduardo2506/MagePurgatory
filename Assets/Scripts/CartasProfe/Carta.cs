@@ -5,14 +5,14 @@ using TMPro;
 public class Carta : MonoBehaviour
 {
     [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Text text;
 
     public PowerUps powerUp;
 
     public void SetValues(PowerUps powerUp)
     {
         image.sprite = powerUp.image;
-        text.SetText(powerUp.text);
+        text.text = powerUp.text;
         this.powerUp = powerUp;
     }
 }

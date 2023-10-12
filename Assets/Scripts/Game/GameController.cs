@@ -45,6 +45,14 @@ public class GameController : MonoBehaviour
         bala.damage = 20;
         panel.panelToActivate.SetActive(false);
     }
+    public void MenorTiempoDeRecarga()
+    {
+        Time.timeScale = 1f;
+        cetro.canShoot = true;
+        player.dashCooldown = 1f;
+        player.teleportCooldown = 2f;
+        panel.panelToActivate.SetActive(false);
+    }
     public void CetroFuego()
     {
         Time.timeScale = 1f;

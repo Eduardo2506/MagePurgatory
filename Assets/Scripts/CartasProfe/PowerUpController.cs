@@ -6,6 +6,9 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] private Carta[] cards;
     private PowerUps[] current;
 
+    [SerializeField] private GameObject[] cetros;
+    [SerializeField] private GameController gameController;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -21,13 +24,26 @@ public class PowerUpController : MonoBehaviour
         Stats stat = card.powerUp as Stats;
         if (stat != null)
         {
-            print("apply power to player");
+            switch (stat.stat)
+            {
+                case Stat.speed:
+                    gameController.PotenciadorVelocidad(); break;
+                case Stat.health:
+                    gameController.PotenciadorVida(); break;
+                case Stat.strengh:
+                    gameController.PotenciadorDaño(); break;
+                case Stat.lessCooldown:
+                    gameController.MenorTiempoDeRecarga(); break;
+            }
             return;
         }
         Item item = card.powerUp as Item;
         if (item != null)
         {
-            print("change player item");
+            for (int i = 0; i < cetros.Length; i++)
+            {
+                cetros[i].SetActive(i == item.index);
+            }
             return;
         }
     }

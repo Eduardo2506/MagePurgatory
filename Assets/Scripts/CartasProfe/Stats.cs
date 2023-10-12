@@ -4,7 +4,8 @@ public enum Stat
 {
     health,
     speed,
-    strengh
+    strengh,
+    lessCooldown
 }
 
 [CreateAssetMenu(fileName = "stat", menuName = "PowerUps/Stat")]
