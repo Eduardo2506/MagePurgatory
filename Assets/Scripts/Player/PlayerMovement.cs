@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem particulasTp;
     //private SpriteRenderer spriteRenderer;//
 
+    private bool isBeingPushed = false; // Variable para controlar el empuje
+    public float pushDuration = 0.5f; // Duración del empuje
+    private float pushEndTime = 0f; // Tiempo en que termina el empuje
+
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -38,17 +43,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+      
+         moveInput.x = Input.GetAxis("Horizontal");
+         moveInput.y = Input.GetAxis("Vertical");
 
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
+         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
+         transform.Translate(moveInput * Time.deltaTime * moveSpeed);
+         animator.SetBool("isMoving", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+
+        if (isBeingPushed && Time.time >= pushEndTime)//
+        {
+            isBeingPushed = false;
+            rb.velocity = Vector2.zero;
+        }
         //mousePos.x = Mathf.Clamp(mousePos.x, -10, 10);//tp fuera del mapa
 
         //Limite en y
         //mousePos.y = Mathf.Clamp(mousePos.y, -10, 10);//tp fuera del mapa
 
-        transform.Translate(moveInput * Time.deltaTime * moveSpeed);
+        
 
         //if (moveInput.x < 0)
         //{
@@ -59,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         //    spriteRenderer.flipX = false;
         //}
 
-        animator.SetBool("isMoving", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+        
         //dash
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastDashTime >= dashCooldown)
         {
@@ -83,6 +97,13 @@ public class PlayerMovement : MonoBehaviour
         }
         float timeLastTeleport = Time.time - lastTeleportTime;
         float teleporCooldownPercentage = Mathf.Clamp01(timeLastTeleport / teleportCooldown);
+    }
+    public void Push(Vector2 pushDirection, float pushForce)//
+    {
+        isBeingPushed = true;
+        pushEndTime = Time.time + pushDuration;
+
+        rb.velocity = pushDirection * pushForce;
     }
     void TeleportToMousePosition()
     {
@@ -123,4 +144,5 @@ public class PlayerMovement : MonoBehaviour
     //        transform.Translate(moveInput * Time.deltaTime * moveSpeed);
     //    }
     //}
+
 }

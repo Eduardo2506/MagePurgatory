@@ -21,6 +21,11 @@ public class FireBall : MonoBehaviour
      
             collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
 
+            Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
+            float pushForce = 5f;
+
+            collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
+
      
             Destroy(gameObject);
         }

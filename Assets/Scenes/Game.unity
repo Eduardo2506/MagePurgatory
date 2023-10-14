@@ -38592,6 +38592,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   particulasDash: {fileID: 1119385492}
   particulasTp: {fileID: 2007428868}
+  pushDuration: 1.5
 --- !u!61 &1168664297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38632,6 +38633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  spriteRenderer: {fileID: 250649189}
 --- !u!1 &1185625426
 GameObject:
   m_ObjectHideFlags: 0
@@ -39862,7 +39864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1613492502
 Transform:
   m_ObjectHideFlags: 0
@@ -47946,11 +47948,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4734074053031569772, guid: 475de4b0aa2d8e043adfc8ba6499caff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3
+      value: -4.67
       objectReference: {fileID: 0}
     - target: {fileID: 4734074053031569772, guid: 475de4b0aa2d8e043adfc8ba6499caff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.55
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 4734074053031569772, guid: 475de4b0aa2d8e043adfc8ba6499caff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48064,7 +48066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6412959446365053045, guid: e350c2561128e1f4cb09b1e9ada5eceb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.52
+      value: -11.55
       objectReference: {fileID: 0}
     - target: {fileID: 6412959446365053045, guid: e350c2561128e1f4cb09b1e9ada5eceb, type: 3}
       propertyPath: m_LocalPosition.y

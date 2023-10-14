@@ -18,15 +18,18 @@ public class Nabam : MonoBehaviour
 
     private bool isFrozen = false;
 
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
-
         originalMoveSpeed = moveSpeed;
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         lifePlayer = player.GetComponent<LifeSystem>();
+
+        playerMovement = player.GetComponent<PlayerMovement>();//
     }
 
     private void Update()
@@ -95,12 +98,17 @@ public class Nabam : MonoBehaviour
 
     private void Explode()
     {
-        
         if (lifePlayer != null)
         {
             lifePlayer.TakeDamage(explosionDamage);
         }
+        // Empuja al jugador
+        Vector3 pushDirection = (player.position - transform.position).normalized;
+        float pushForce = 5f;
+        playerMovement.Push(pushDirection, pushForce);
+
         GetComponentInParent<EnemySpawner>().EnemyKilled();
+
 
         Destroy(gameObject);
     }

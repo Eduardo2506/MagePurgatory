@@ -33,7 +33,7 @@ public class RondasController : MonoBehaviour
         yield return new WaitUntil(() => enemy.currentEnemies == enemy.maxEnemies && enemy.enemiesActuales == 0);
         StopCoroutine(corutina);
         ronda++;
-        if (ronda >= 4)
+        if (ronda >= 7)
         {
             Debug.Log("ganaste");
             yield break;
