@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fondo
+    uniqueID: 3906333591
+    locked: 0
+  - name: Arboles
+    uniqueID: 2996199851
+    locked: 0
