@@ -155,14 +155,14 @@ public class EnemySpawner : MonoBehaviour
         {
             panelToActivate.SetActive(true);
 
-            for (int i = 0; i < Mathf.Min(3, allCards.Length); i++)
-            {
-                CardDisplay cardDisplay = panelToActivate.transform.GetChild(i).GetComponent<CardDisplay>();
-                cardDisplay.card = allCards[i];
-                cardDisplay.nameText.text = allCards[i].name;
-                cardDisplay.descriptionText.text = allCards[i].description;
-                cardDisplay.artworkImage.sprite = allCards[i].artwork;
-            }
+            //for (int i = 0; i < Mathf.Min(3, allCards.Length); i++)
+            //{
+            //    CardDisplay cardDisplay = panelToActivate.transform.GetChild(i).GetComponent<CardDisplay>();
+            //    cardDisplay.card = allCards[i];
+            //    cardDisplay.nameText.text = allCards[i].name;
+            //    cardDisplay.descriptionText.text = allCards[i].description;
+            //    cardDisplay.artworkImage.sprite = allCards[i].artwork;
+            //}
         }
 
         Time.timeScale = 0f;

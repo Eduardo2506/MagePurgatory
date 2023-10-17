@@ -665,8 +665,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100098715}
-  - component: {fileID: 100098716}
   - component: {fileID: 100098717}
+  - component: {fileID: 100098718}
   m_Layer: 5
   m_Name: CartaPotenciadorVida
   m_TagString: Untagged
@@ -697,22 +697,6 @@ RectTransform:
   m_AnchoredPosition: {x: -28, y: 2}
   m_SizeDelta: {x: 331.1281, y: 423.9581}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &100098716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100098714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb0ffcbe56357c4aaf8a2a2c6abccef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 0}
-  nameText: {fileID: 609140179}
-  descriptionText: {fileID: 1802491758}
-  artworkImage: {fileID: 2012505525}
 --- !u!114 &100098717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +716,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -757,18 +741,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1356355368}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: PotenciadorVida
-        m_Mode: 1
+      - m_Target: {fileID: 1856054292}
+        m_TargetAssemblyTypeName: PowerUpController, Assembly-CSharp
+        m_MethodName: PowerUpCallback
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 100098718}
+          m_ObjectArgumentAssemblyTypeName: Carta, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &100098718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100098714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f82e143059c7114b85a7a97d964cc3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2012505525}
+  text: {fileID: 609140179}
+  powerUp: {fileID: 0}
 --- !u!1 &131573835
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,8 +861,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 136736903}
-  - component: {fileID: 136736904}
   - component: {fileID: 136736905}
+  - component: {fileID: 136736906}
   m_Layer: 5
   m_Name: CartaPotenciadorVelocidad
   m_TagString: Untagged
@@ -894,22 +893,6 @@ RectTransform:
   m_AnchoredPosition: {x: 313.99997, y: 2.0000305}
   m_SizeDelta: {x: 331.1281, y: 423.9581}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &136736904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136736902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb0ffcbe56357c4aaf8a2a2c6abccef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 0}
-  nameText: {fileID: 836851402}
-  descriptionText: {fileID: 2063665381}
-  artworkImage: {fileID: 1559570253}
 --- !u!114 &136736905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +912,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -954,18 +937,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1356355368}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: PotenciadorVelocidad
-        m_Mode: 1
+      - m_Target: {fileID: 1856054292}
+        m_TargetAssemblyTypeName: PowerUpController, Assembly-CSharp
+        m_MethodName: PowerUpCallback
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 136736906}
+          m_ObjectArgumentAssemblyTypeName: Carta, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &136736906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136736902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f82e143059c7114b85a7a97d964cc3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1559570253}
+  text: {fileID: 836851402}
+  powerUp: {fileID: 0}
 --- !u!1 &147786608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3434,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 489060204}
-  - component: {fileID: 489060205}
   - component: {fileID: 489060206}
   - component: {fileID: 489060207}
   m_Layer: 5
@@ -3469,22 +3466,6 @@ RectTransform:
   m_AnchoredPosition: {x: -373, y: 2.0000305}
   m_SizeDelta: {x: 331.1281, y: 423.9581}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &489060205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489060203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb0ffcbe56357c4aaf8a2a2c6abccef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card: {fileID: 0}
-  nameText: {fileID: 2013037307}
-  descriptionText: {fileID: 1952507339}
-  artworkImage: {fileID: 448663194}
 --- !u!114 &489060206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,7 +3485,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3529,13 +3510,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1356355368}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: "PotenciadorDa\xF1o"
-        m_Mode: 1
+      - m_Target: {fileID: 1856054292}
+        m_TargetAssemblyTypeName: PowerUpController, Assembly-CSharp
+        m_MethodName: PowerUpCallback
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 489060207}
+          m_ObjectArgumentAssemblyTypeName: Carta, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3553,8 +3534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f82e143059c7114b85a7a97d964cc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  text: {fileID: 0}
+  image: {fileID: 448663194}
+  text: {fileID: 2013037307}
   powerUp: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -40545,6 +40526,7 @@ GameObject:
   - component: {fileID: 1856054289}
   - component: {fileID: 1856054291}
   - component: {fileID: 1856054290}
+  - component: {fileID: 1856054292}
   m_Layer: 5
   m_Name: PanelCartas
   m_TagString: Untagged
@@ -40613,6 +40595,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856054288}
   m_CullTransparentMesh: 1
+--- !u!114 &1856054292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856054288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1429a91af72e7644be9f3dce400cabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: {fileID: 11400000, guid: c19ae695ced51c54899f0049c2ddd789, type: 2}
+  cards:
+  - {fileID: 489060207}
+  - {fileID: 100098718}
+  - {fileID: 136736906}
+  cetros:
+  - {fileID: 1453469529}
+  - {fileID: 545431892}
+  - {fileID: 1004296588}
+  - {fileID: 421905582}
+  - {fileID: 1112492905}
+  gameController: {fileID: 1356355368}
 --- !u!4 &1871408136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7695413311370691825, guid: 217942d50ede0384fbd8b338f05d05eb, type: 3}

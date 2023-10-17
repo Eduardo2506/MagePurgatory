@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe15f86b523abd149964d39aa96e115d, type: 3}
   m_Name: item
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  text: 
-  index: 1
+  image: {fileID: 21300000, guid: 2eee406f3ad13d74b9befd722ff070e1, type: 3}
+  text: cetro
+  index: 0

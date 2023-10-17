@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: list
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 3a8318313bed01b4fbc0b7792b692506, type: 2}
+  - {fileID: 11400000, guid: 3a8318313bed01b4fbc0b7792b692506, type: 2}
+  - {fileID: 11400000, guid: 3a8318313bed01b4fbc0b7792b692506, type: 2}
