@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe15f86b523abd149964d39aa96e115d, type: 3}
+  m_Name: C1
+  m_EditorClassIdentifier: 
+  image: {fileID: 165929392, guid: 670fee320277dd0478162b5ae1e26515, type: 3}
+  text: CetroNormal
+  index: 0
