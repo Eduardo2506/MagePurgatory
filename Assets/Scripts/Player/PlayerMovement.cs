@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class PlayerMovement : MonoBehaviour
 {
     //Movimiento
@@ -27,9 +29,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem particulasTp;
     //private SpriteRenderer spriteRenderer;//
 
-    private bool isBeingPushed = false; // Variable para controlar el empuje
-    public float pushDuration = 0.5f; // Duración del empuje
-    private float pushEndTime = 0f; // Tiempo en que termina el empuje
+    private bool isBeingPushed = false; 
+    public float pushDuration = 0.5f; 
+    private float pushEndTime = 0f;
+
+
+    [SerializeField] private Image energyBar;
+   
+    private float energyRechargeDelay = 10.0f; 
+    private float lastEnergyUsedTime; 
 
 
     private void Start()
@@ -97,6 +105,13 @@ public class PlayerMovement : MonoBehaviour
         }
         float timeLastTeleport = Time.time - lastTeleportTime;
         float teleporCooldownPercentage = Mathf.Clamp01(timeLastTeleport / teleportCooldown);
+
+        if (energyBar.fillAmount < 1.0f && Time.time - lastEnergyUsedTime >= energyRechargeDelay)//
+        {
+            // Recargar la barra de energía después de 10 segundos
+            float rechargeRate = 0.1f; // Ajusta la velocidad de recarga
+            energyBar.fillAmount = Mathf.Clamp(energyBar.fillAmount + (rechargeRate * Time.deltaTime), 0.0f, 1.0f);
+        }
     }
     public void Push(Vector2 pushDirection, float pushForce)//
     {
@@ -108,9 +123,22 @@ public class PlayerMovement : MonoBehaviour
     void TeleportToMousePosition()
     {
         particulasTp.Play();//
-        
-        Vector2 teleportPosition = mousePos;
-        playerTransform.position = teleportPosition;
+        float teleportCostPercentage = 0.5f; //0.1f
+        if (energyBar.fillAmount - teleportCostPercentage >= 0)
+        {
+            Vector2 teleportPosition = mousePos;
+            playerTransform.position = teleportPosition;
+
+            energyBar.fillAmount -= teleportCostPercentage;
+
+            lastEnergyUsedTime = Time.time;//
+        }
+        else
+        {
+            particulasTp.Stop();
+        }
+
+       
     }
     void StartDash()
     {
@@ -118,13 +146,24 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         lastDashTime = Time.time;
 
-        // Aplicar el Dash (cambia la lógica según tus necesidades)
-        Vector2 dashDirection = moveInput.normalized;
-        rb.velocity = dashDirection * moveSpeed * 3f;
+        
+        float dashCostPercentage = 0.3f; //0.09f
+        if (energyBar.fillAmount - dashCostPercentage >= 0)
+        {
+            Vector2 dashDirection = moveInput.normalized;
+            rb.velocity = dashDirection * moveSpeed * 3f;
 
-        // Aquí podrías desactivar la capacidad de mover al jugador durante el Dash si es necesario
+            energyBar.fillAmount -= dashCostPercentage;
 
-        // Detener el Dash después de la duración especificada
+            lastEnergyUsedTime = Time.time;//
+
+        }
+        else
+        {
+            particulasDash.Stop();
+        }
+        
+
         StartCoroutine(StopDash());
     }
 
@@ -133,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
 
-        // Aquí podrías reactivar la capacidad de mover al jugador después del Dash si es necesario
 
         rb.velocity = Vector2.zero;
     }

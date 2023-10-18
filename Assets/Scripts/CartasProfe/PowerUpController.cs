@@ -13,6 +13,7 @@ public class PowerUpController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))//
         {
+            print("Activado");
             current = list.RandomPowerUps(cards.Length);
 
             for (int i = 0; i < current.Length; i++)

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe15f86b523abd149964d39aa96e115d, type: 3}
-  m_Name: C2
+  m_Name: C5
   m_EditorClassIdentifier: 
-  image: {fileID: 1360763005, guid: 670fee320277dd0478162b5ae1e26515, type: 3}
-  text: CetroFuego
-  index: 1
+  image: {fileID: -1076991294, guid: 670fee320277dd0478162b5ae1e26515, type: 3}
+  text: CetroTierra
+  index: 4

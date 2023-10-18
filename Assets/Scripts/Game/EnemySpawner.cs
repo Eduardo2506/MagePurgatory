@@ -145,7 +145,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void ActivatePanel()
     {
-        Card[] allCards = Resources.FindObjectsOfTypeAll<Card>();
+        Carta[] allCards = Resources.FindObjectsOfTypeAll<Carta>();//
 
         ShuffleArray(allCards);
 
