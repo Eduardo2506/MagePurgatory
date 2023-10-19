@@ -9,6 +9,8 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] private GameObject[] cetros;
     [SerializeField] private GameController gameController;
 
+    [SerializeField] private EnemySpawner panel;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))//
@@ -43,6 +45,8 @@ public class PowerUpController : MonoBehaviour
         {
             for (int i = 0; i < cetros.Length; i++)
             {
+                Time.timeScale = 1f;
+                panel.panelToActivate.SetActive(false);
                 cetros[i].SetActive(i == item.index);
             }
             return;
