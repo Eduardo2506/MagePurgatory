@@ -143,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
             //cetroController.canShoot = false;
         }
     }
-    private void ActivatePanel()
+    public void ActivatePanel()
     {
         Carta[] allCards = Resources.FindObjectsOfTypeAll<Carta>();//
 

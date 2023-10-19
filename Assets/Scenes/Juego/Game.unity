@@ -32013,6 +32013,7 @@ MonoBehaviour:
   - {fileID: 421905582}
   - {fileID: 1112492905}
   gameController: {fileID: 1356355368}
+  panel: {fileID: 0}
 --- !u!4 &846927487
 Transform:
   m_ObjectHideFlags: 0
@@ -39162,7 +39163,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1257181535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41073,6 +41074,7 @@ MonoBehaviour:
   - {fileID: 421905582}
   - {fileID: 1112492905}
   gameController: {fileID: 1356355368}
+  panel: {fileID: 1257181535}
 --- !u!4 &1871408136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7695413311370691825, guid: 217942d50ede0384fbd8b338f05d05eb, type: 3}
