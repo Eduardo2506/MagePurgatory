@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,9 @@ public class RondasController : MonoBehaviour
     private int ronda = 1;
     public EnemySpawner enemy;
 
+
     public Text textoContador, textoRonda;
+       
     private IEnumerator Start()
     {
         textoRonda.transform.parent.gameObject.SetActive(true);
@@ -36,6 +39,7 @@ public class RondasController : MonoBehaviour
         if (ronda >= 7)
         {
             Debug.Log("ganaste");
+     
             yield break;
         }
 
