@@ -9,7 +9,13 @@ public class LifeSystem : MonoBehaviour
     private Coroutine damageCoroutine;
     public SpriteRenderer spriteRenderer;
 
+    public GameObject panelPerdiste;
+    public Animator nabumFestejo;
 
+    private void Awake()
+    {
+        nabumFestejo.StartPlayback();
+    }
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -47,6 +53,8 @@ public class LifeSystem : MonoBehaviour
 
     private void Die()
     {
+        panelPerdiste.SetActive(true);
+        Time.timeScale = 0f;
         gameObject.SetActive(false); 
     }
 }

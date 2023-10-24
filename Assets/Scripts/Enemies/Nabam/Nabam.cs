@@ -101,6 +101,9 @@ public class Nabam : MonoBehaviour
         if (lifePlayer != null)
         {
             lifePlayer.TakeDamage(explosionDamage);
+
+            float damagePercentage = (float)explosionDamage / (float)lifePlayer.maxHealth;
+            playerMovement.healthBar.fillAmount = Mathf.Max(0, playerMovement.healthBar.fillAmount - damagePercentage);
         }
         // Empuja al jugador
         Vector3 pushDirection = (player.position - transform.position).normalized;

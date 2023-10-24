@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,8 @@ public class RondasController : MonoBehaviour
     public EnemySpawner enemy;
 
 
-    public Text textoContador, textoRonda;
+    public TextMeshProUGUI  textoRonda;
+    public TextMeshProUGUI textoContador;
        
     private IEnumerator Start()
     {

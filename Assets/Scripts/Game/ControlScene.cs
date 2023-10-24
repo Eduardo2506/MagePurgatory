@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlScene : MonoBehaviour
 {
+    public string nameScene;
     public void SiguienteEscena()
     {
         // Obtén el índice de la escena actual
@@ -19,5 +18,16 @@ public class ControlScene : MonoBehaviour
         // Salir de la aplicación
         Application.Quit();
         Debug.Log("Saliste del juego");
+    }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene(nameScene);
+    }
+
+    public void Reintentar()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

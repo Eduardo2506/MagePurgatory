@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] private Image energyBar;
+    [SerializeField] public Image healthBar;
    
     private float energyRechargeDelay = 10.0f; 
     private float lastEnergyUsedTime; 
