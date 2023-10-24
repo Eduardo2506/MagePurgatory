@@ -54,7 +54,6 @@ public class LifeSystem : MonoBehaviour
     private void Die()
     {
         panelPerdiste.SetActive(true);
-        Time.timeScale = 0f;
         gameObject.SetActive(false); 
     }
 }
