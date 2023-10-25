@@ -824,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &95535878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &109812229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39763,7 +39763,8 @@ MonoBehaviour:
   currentHealth: 0
   spriteRenderer: {fileID: 250649189}
   panelPerdiste: {fileID: 1589668306}
-  nabumFestejo: {fileID: 1741358539}
+  button1: {fileID: 109812228}
+  button2: {fileID: 95535877}
 --- !u!1 &1185625426
 GameObject:
   m_ObjectHideFlags: 0
