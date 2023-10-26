@@ -22,6 +22,7 @@ public class LifeSystem : MonoBehaviour
     //{
     //    nabumFestejo.StartPlayback();
     //}
+
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();

@@ -11,16 +11,14 @@ public class PowerUpController : MonoBehaviour
 
     [SerializeField] private EnemySpawner panel;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))//
-        {
-            print("Activado");
-            current = list.RandomPowerUps(cards.Length);
 
-            for (int i = 0; i < current.Length; i++)
-                cards[i].SetValues(current[i]);
-        }
+    public void PowerUps()
+    {
+        print("Activado");
+        current = list.RandomPowerUps(cards.Length);
+
+        for (int i = 0; i < current.Length; i++)
+            cards[i].SetValues(current[i]);
     }
     public void PowerUpCallback(Carta card)
     {

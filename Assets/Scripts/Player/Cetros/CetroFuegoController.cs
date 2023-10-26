@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CetroFuegoController : MonoBehaviour
@@ -12,6 +10,7 @@ public class CetroFuegoController : MonoBehaviour
     private float timeSinceLastShot = 0f;
 
     public bool canShoot = true;
+
 
     private void Start()
     {
@@ -30,12 +29,15 @@ public class CetroFuegoController : MonoBehaviour
 
         if (timeSinceLastShot >= shootCooldown && Input.GetButtonDown("Fire1"))
         {
+            canShoot = true;
             // Realiza el disparo
             Instantiate(bulletPrefab, firePoint.position, transform.rotation);
 
             // Reinicia el contador de tiempo
             timeSinceLastShot = 0f;
-        }
+
+ 
+          }
     }
 
     //private IEnumerator ShootWithInterval()

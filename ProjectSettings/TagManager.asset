@@ -8,6 +8,8 @@ TagManager:
   - balafuego
   - balahielo
   - balatierra
+  - Mesa
+  - Enemies
   layers:
   - Default
   - TransparentFX

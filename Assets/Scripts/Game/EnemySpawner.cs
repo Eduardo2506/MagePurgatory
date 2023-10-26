@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public Text textoContador;
     public Image imagenRonda;
 
+    public PowerUpController powerUps;
 
     private void Start()
     {
@@ -154,6 +155,7 @@ public class EnemySpawner : MonoBehaviour
         if (panelToActivate != null)
         {
             panelToActivate.SetActive(true);
+            powerUps.PowerUps();
 
             //for (int i = 0; i < Mathf.Min(3, allCards.Length); i++)
             //{
@@ -165,7 +167,7 @@ public class EnemySpawner : MonoBehaviour
             //}
         }
 
-        Time.timeScale = 0f;
+        Time.timeScale = 1f;//0f
 
         cetroController.canShoot = false;
     }
