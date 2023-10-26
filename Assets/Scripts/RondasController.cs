@@ -38,7 +38,7 @@ public class RondasController : MonoBehaviour
         yield return new WaitUntil(() => enemy.currentEnemies == enemy.maxEnemies && enemy.enemiesActuales == 0);
         StopCoroutine(corutina);
         ronda++;
-        if (ronda >= 2)
+        if (ronda >= 5)
         {
             panelVictoria.SetActive(true);
             Debug.Log("ganaste");
