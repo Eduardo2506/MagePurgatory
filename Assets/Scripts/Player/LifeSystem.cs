@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeSystem : MonoBehaviour
 {
@@ -9,6 +10,18 @@ public class LifeSystem : MonoBehaviour
     private Coroutine damageCoroutine;
     public SpriteRenderer spriteRenderer;
 
+    public GameObject panelPerdiste;
+
+    public GameObject button1; 
+    public GameObject button2;
+   
+
+    //public Animator nabumFestejo;
+
+    //private void Awake()
+    //{
+    //    nabumFestejo.StartPlayback();
+    //}
 
     private void Start()
     {
@@ -47,6 +60,18 @@ public class LifeSystem : MonoBehaviour
 
     private void Die()
     {
-        gameObject.SetActive(false); 
+        panelPerdiste.SetActive(true);
+        //gameObject.SetActive(false);
+
+        StartCoroutine(ShowButtonsAfterDelay(2.0f));
+    }
+    private IEnumerator ShowButtonsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+      
+
+       
+        button1.SetActive(true);
+        button2.SetActive(true);
     }
 }

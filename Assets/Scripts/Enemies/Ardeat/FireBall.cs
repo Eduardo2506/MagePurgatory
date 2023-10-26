@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireBall : MonoBehaviour
@@ -19,7 +20,18 @@ public class FireBall : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
      
-            collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
+            LifeSystem lifePlayer = collision.gameObject.GetComponent<LifeSystem>();
+            if (lifePlayer != null)
+            {
+                lifePlayer.TakeDamage(damage);
+
+                PlayerMovement movPlayer = collision.gameObject.GetComponent<PlayerMovement>();
+                if (movPlayer != null) 
+                {
+                    float damagePercentage = (float)damage / (float)lifePlayer.maxHealth;
+                    movPlayer.healthBar.fillAmount = Mathf.Max(0, movPlayer.healthBar.fillAmount - damagePercentage);
+                }
+            }
 
             Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
             float pushForce = 5f;
@@ -35,4 +47,6 @@ public class FireBall : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+
 

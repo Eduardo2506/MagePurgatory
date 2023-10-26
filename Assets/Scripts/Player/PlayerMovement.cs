@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //Movimiento
-    [SerializeField] public float moveSpeed; // Velocidad de movimiento
+    [SerializeField] public float moveSpeed; 
     Vector2 moveInput;
     Animator animator;
     Rigidbody2D rb;
@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private ParticleSystem particulasDash;
     [SerializeField] private ParticleSystem particulasTp;
-    //private SpriteRenderer spriteRenderer;//
 
     private bool isBeingPushed = false; 
     public float pushDuration = 0.5f; 
@@ -35,10 +34,23 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] private Image energyBar;
+    [SerializeField] public Image healthBar;
    
     private float energyRechargeDelay = 10.0f; 
-    private float lastEnergyUsedTime; 
+    private float lastEnergyUsedTime;
 
+    [SerializeField] public GameObject panelMesaCetros;
+    private bool onMesa = false;
+    private bool panelActivo = false;
+
+    private SpriteRenderer spriteRenderer;//
+
+    public bool canDashTutorial = true;
+    public bool canTeleportTutorial = true;
+
+    public GameObject panelEnemies;
+    private bool onEnemies = false;
+    private bool panelEnemiesActivo = false;
 
     private void Start()
     {
@@ -46,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
 
-        //spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -58,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
          mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
          transform.Translate(moveInput * Time.deltaTime * moveSpeed);
-         animator.SetBool("isMoving", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+         animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
 
         if (isBeingPushed && Time.time >= pushEndTime)//
         {
@@ -70,20 +82,18 @@ public class PlayerMovement : MonoBehaviour
         //Limite en y
         //mousePos.y = Mathf.Clamp(mousePos.y, -10, 10);//tp fuera del mapa
 
-        
+        if (moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
 
-        //if (moveInput.x < 0)
-        //{
-        //    spriteRenderer.flipX = true;
-        //}
-        //else if (moveInput.x > 0)
-        //{
-        //    spriteRenderer.flipX = false;
-        //}
 
-        
         //dash
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastDashTime >= dashCooldown)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastDashTime >= dashCooldown && canDashTutorial)
         {
             StartDash();
         }
@@ -92,8 +102,9 @@ public class PlayerMovement : MonoBehaviour
         float cooldownPercentage = Mathf.Clamp01(timeLastDash / dashCooldown);
 
         //teleport
-        if (Input.GetKeyDown(KeyCode.T) && canTeleport)
+        if (Input.GetKeyDown(KeyCode.T) && canTeleport && canTeleportTutorial)
         {
+            animator.SetBool("isTeleporting", false);
             TeleportToMousePosition();
             canTeleport = false;
             lastTeleportTime = Time.time;//
@@ -112,6 +123,34 @@ public class PlayerMovement : MonoBehaviour
             float rechargeRate = 0.1f; // Ajusta la velocidad de recarga
             energyBar.fillAmount = Mathf.Clamp(energyBar.fillAmount + (rechargeRate * Time.deltaTime), 0.0f, 1.0f);
         }
+        if (Input.GetKeyDown(KeyCode.E) && onMesa)
+        {
+            if (!panelActivo)
+            {
+                panelMesaCetros.SetActive(true);
+                panelActivo = true;
+            }
+            else
+            {
+                panelMesaCetros.SetActive(false);
+                panelActivo = false;
+            }
+            
+        }
+        if (Input.GetKeyDown(KeyCode.E) && onEnemies)
+        {
+            if (!panelEnemiesActivo)
+            {
+                panelEnemies.SetActive(true);
+                panelEnemiesActivo = true;
+            }
+            else
+            {
+                panelEnemies.SetActive(false);
+                panelEnemiesActivo = false;
+            }
+        }
+
     }
     public void Push(Vector2 pushDirection, float pushForce)//
     {
@@ -126,6 +165,9 @@ public class PlayerMovement : MonoBehaviour
         float teleportCostPercentage = 0.5f; //0.1f
         if (energyBar.fillAmount - teleportCostPercentage >= 0)
         {
+            animator.SetTrigger("isTeleporting");
+
+
             Vector2 teleportPosition = mousePos;
             playerTransform.position = teleportPosition;
 
@@ -182,5 +224,47 @@ public class PlayerMovement : MonoBehaviour
     //        transform.Translate(moveInput * Time.deltaTime * moveSpeed);
     //    }
     //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Mesa"))
+        {
+            onMesa = true;
+        }
+        if (other.CompareTag("Enemies"))
+        {
+            onEnemies = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Mesa"))
+        {
+            onMesa = false;
+            panelMesaCetros.SetActive(false);
+        }
+        if (other.CompareTag("Enemies"))
+        {
+            onEnemies = false;
+            panelEnemies.SetActive(false);
+        }
+    }
+    public void EnableDash()
+    {
+        canDashTutorial = true;
+    }
 
+    public void DisableDash()
+    {
+        canDashTutorial = false;
+    }
+
+    public void EnableTeleport()
+    {
+        canTeleportTutorial = true;
+    }
+
+    public void DisableTeleport()
+    {
+        canTeleportTutorial = false;
+    }
 }

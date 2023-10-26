@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Balrog : MonoBehaviour
@@ -23,7 +24,6 @@ public class Balrog : MonoBehaviour
     private void Start()
     {
         originalMoveSpeed = moveSpeed;
-
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -53,15 +53,25 @@ public class Balrog : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && canAttack)
         {
+            LifeSystem playerLife = collision.gameObject.GetComponent<LifeSystem>();
+            if (playerLife != null)
+            {
+                playerLife.TakeDamage(damage);
+                
+                PlayerMovement playerMov = collision.gameObject.GetComponent<PlayerMovement>();
+                if (playerMov != null )
+                {
+                    float damagePercentage = (float)damage / (float)playerLife.maxHealth;
+                    playerMov.healthBar.fillAmount = Mathf.Max(0, playerMov.healthBar.fillAmount - damagePercentage);
+                }
+            }
 
-            collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
+            //collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
 
             Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
             float pushForce = 5f;
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = directionPlayer * pushForce;
             collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
-
-
 
             canAttack = false;
             Invoke("ResetAttackCooldown", attackCooldown);
