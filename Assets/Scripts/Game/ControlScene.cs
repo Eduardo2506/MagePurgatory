@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class ControlScene : MonoBehaviour
 {
     public string nameScene;
+    public GameObject panelOpciones;
     public void SiguienteEscena()
     {
         // Obtén el índice de la escena actual
@@ -29,5 +30,13 @@ public class ControlScene : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Opciones()
+    {
+        panelOpciones.SetActive(true);
+    } 
+    public void ReturnMenuOptions()
+    {
+        panelOpciones.SetActive(false);
     }
 }
