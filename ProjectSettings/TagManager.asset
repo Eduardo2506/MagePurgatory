@@ -15,7 +15,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - assets
   - Water
   - UI
   - Enemy
@@ -48,9 +48,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Arboles
+    uniqueID: 2996199851
+    locked: 0
   - name: Fondo
     uniqueID: 3906333591
     locked: 0
-  - name: Arboles
-    uniqueID: 2996199851
+  - name: Vegetacion
+    uniqueID: 459645309
+    locked: 0
+  - name: Todo adelante
+    uniqueID: 972536833
     locked: 0
