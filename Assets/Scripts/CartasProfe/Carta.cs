@@ -5,7 +5,7 @@ using TMPro;
 public class Carta : MonoBehaviour
 {
     [SerializeField] private Image image;
-    [SerializeField] private Text text;
+    [SerializeField] private TextMeshProUGUI text;
 
     public PowerUps powerUp;
 

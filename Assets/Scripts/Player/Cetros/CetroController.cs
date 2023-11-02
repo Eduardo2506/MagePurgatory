@@ -8,6 +8,9 @@ public class CetroController : MonoBehaviour
 
     public bool canShoot = true;//
 
+    public float shootCooldown = .6f;
+    private float timeSinceLastShot = .6f;
+
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -15,15 +18,33 @@ public class CetroController : MonoBehaviour
     private void Update()
     {
         Aim();
-        Shoot();
+        //Shoot();
+        HandleShooting();
     }
-    void Shoot()
+    void HandleShooting()
     {
-        if (canShoot && Input.GetButtonDown("Fire1"))
+        // Actualiza el tiempo transcurrido desde el último disparo
+        timeSinceLastShot += Time.deltaTime;
+
+        if (timeSinceLastShot >= shootCooldown && Input.GetButtonDown("Fire1"))
         {
+            canShoot = true;
+            // Realiza el disparo
             Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+
+            // Reinicia el contador de tiempo
+            timeSinceLastShot = 0f;
+
+
         }
     }
+    //void Shoot()
+    //{
+    //    if (canShoot && Input.GetButtonDown("Fire1"))
+    //    {
+    //        Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+    //    }
+    //}
     void Aim()
     {
         Vector3 mousePos = Input.mousePosition;

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: P2
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 303aff967d49b2647a2d68505081d8b6, type: 3}
-  text: PotenciadorVida
+  text: Potenciador Vida
   stat: 0

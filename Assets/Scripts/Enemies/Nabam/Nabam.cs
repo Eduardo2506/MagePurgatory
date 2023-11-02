@@ -107,7 +107,7 @@ public class Nabam : MonoBehaviour
         }
         // Empuja al jugador
         Vector3 pushDirection = (player.position - transform.position).normalized;
-        float pushForce = 5f;
+        float pushForce = 2f;
         playerMovement.Push(pushDirection, pushForce);
 
         GetComponentInParent<EnemySpawner>().EnemyKilled();

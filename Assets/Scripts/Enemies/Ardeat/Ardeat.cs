@@ -11,7 +11,7 @@ public class Ardeat : MonoBehaviour
 
 
     private Transform player;
-    private bool canShoot = true;
+    public bool canShoot = false;
 
     public float initialDelay = 10f;
 
@@ -21,6 +21,8 @@ public class Ardeat : MonoBehaviour
     private float originalMoveSpeed;
 
     private bool isFrozen = false;
+
+    public float attackDistance = 5f;
     private void Start()
     {
         originalMoveSpeed = moveSpeed; 
@@ -39,6 +41,17 @@ public class Ardeat : MonoBehaviour
         if (!isFrozen)
         {
             Vector2 direction = player.position - transform.position;
+            float distanceToPlayer = direction.magnitude;
+            if (distanceToPlayer <= attackDistance)
+            {
+                moveSpeed = 0f;
+                canShoot = true;
+            }
+            else
+            {
+                moveSpeed = 3f;
+                canShoot = false;
+            }
             direction.Normalize();
 
             if (direction.x < 0)
@@ -124,7 +137,7 @@ public class Ardeat : MonoBehaviour
 
 
             Vector2 direction = (player.position - pointFire.position).normalized;
-
+            fireball.transform.right = direction;
             Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
             rb.velocity = direction * fireball.GetComponent<FireBall>().fireballForce;
         }

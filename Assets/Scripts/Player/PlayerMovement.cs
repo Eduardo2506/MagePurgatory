@@ -52,6 +52,17 @@ public class PlayerMovement : MonoBehaviour
     private bool onEnemies = false;
     private bool panelEnemiesActivo = false;
 
+    public GameObject panelPowerUps;
+    public bool onPowerUps;
+    private bool panelPowerUpsActivo = false;
+
+
+    [SerializeField] private CetroController cetroNormalController;
+    [SerializeField] private CetroFuegoController cetroFuegoController;
+    [SerializeField] private CetroHieloController cetroHieloController;
+    [SerializeField] private CetroRayoController cetroRayoController;
+    [SerializeField] private CetroTierraController cetroTierraController;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -127,11 +138,26 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!panelActivo)
             {
+
+                cetroNormalController.canShoot = false;
+
+                cetroFuegoController.canShoot = false;
+                cetroHieloController.canShoot = false;
+                cetroRayoController.canShoot = false;
+                cetroTierraController.canShoot = false;
+                Time.timeScale = 0f;
                 panelMesaCetros.SetActive(true);
                 panelActivo = true;
             }
             else
             {
+                cetroNormalController.canShoot = true;
+
+                cetroFuegoController.canShoot = true;
+                cetroHieloController.canShoot = true;
+                cetroRayoController.canShoot = true;
+                cetroTierraController.canShoot = true;
+                Time.timeScale = 1f;
                 panelMesaCetros.SetActive(false);
                 panelActivo = false;
             }
@@ -141,13 +167,30 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!panelEnemiesActivo)
             {
+                Time.timeScale = 0f;
                 panelEnemies.SetActive(true);
                 panelEnemiesActivo = true;
             }
             else
             {
+                Time.timeScale = 1f;
                 panelEnemies.SetActive(false);
                 panelEnemiesActivo = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E) && onPowerUps)
+        {
+            if (!panelPowerUpsActivo)
+            {
+                Time.timeScale = 0f;
+                panelPowerUps.SetActive(true);
+                panelPowerUpsActivo = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                panelPowerUps.SetActive(false);
+                panelPowerUpsActivo = false;
             }
         }
 
@@ -162,13 +205,15 @@ public class PlayerMovement : MonoBehaviour
     void TeleportToMousePosition()
     {
         particulasTp.Play();//
-        float teleportCostPercentage = 0.5f; //0.1f
+        float teleportCostPercentage = 0.1f; //0.1f
         if (energyBar.fillAmount - teleportCostPercentage >= 0)
         {
             animator.SetTrigger("isTeleporting");
 
 
             Vector2 teleportPosition = mousePos;
+            teleportPosition.x = Mathf.Clamp(teleportPosition.x, -10, 10);
+            teleportPosition.y = Mathf.Clamp(teleportPosition.y, -10, 10);
             playerTransform.position = teleportPosition;
 
             energyBar.fillAmount -= teleportCostPercentage;
@@ -189,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         lastDashTime = Time.time;
 
         
-        float dashCostPercentage = 0.3f; //0.09f
+        float dashCostPercentage = 0.09f; //0.09f
         if (energyBar.fillAmount - dashCostPercentage >= 0)
         {
             Vector2 dashDirection = moveInput.normalized;
@@ -234,6 +279,10 @@ public class PlayerMovement : MonoBehaviour
         {
             onEnemies = true;
         }
+        if (other.CompareTag("PowerUps"))
+        {
+            onPowerUps = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -246,6 +295,10 @@ public class PlayerMovement : MonoBehaviour
         {
             onEnemies = false;
             panelEnemies.SetActive(false);
+        }
+        if (other.CompareTag("PowerUps"))
+        {
+            onPowerUps = false;
         }
     }
     public void EnableDash()
@@ -266,5 +319,9 @@ public class PlayerMovement : MonoBehaviour
     public void DisableTeleport()
     {
         canTeleportTutorial = false;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(Vector2.zero, Vector2.one * 20 );
     }
 }

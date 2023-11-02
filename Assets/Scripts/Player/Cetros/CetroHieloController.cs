@@ -8,8 +8,8 @@ public class CetroHieloController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    public float shootCooldown = 2f; 
-    private float timeSinceLastShot = 0f; 
+    public float shootCooldown = 1f; 
+    private float timeSinceLastShot = 1f; 
 
     public bool canShoot = true;//
 

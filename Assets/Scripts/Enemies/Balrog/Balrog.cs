@@ -66,10 +66,23 @@ public class Balrog : MonoBehaviour
                 }
             }
 
+            LifeSystemTutorial playerLifeTutorial = collision.gameObject.GetComponent<LifeSystemTutorial>();
+            if (playerLifeTutorial != null)
+            {
+                playerLifeTutorial.TakeDamage(damage);
+
+                PlayerMovement playerMov = collision.gameObject.GetComponent<PlayerMovement>();
+                if (playerMov != null)
+                {
+                    float damagePercentage = (float)damage / (float)playerLifeTutorial.maxHealth;
+                    playerMov.healthBar.fillAmount = Mathf.Max(0, playerMov.healthBar.fillAmount - damagePercentage);
+                }
+            }
+
             //collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
 
             Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
-            float pushForce = 5f;
+            float pushForce = 4f;
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = directionPlayer * pushForce;
             collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3496349690392060713}
   - component: {fileID: 4461070813019608681}
   - component: {fileID: 6575414571282146332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Anim_Bala_Ardeat_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,7 @@ TagManager:
   - balatierra
   - Mesa
   - Enemies
+  - PowerUps
   layers:
   - Default
   - TransparentFX

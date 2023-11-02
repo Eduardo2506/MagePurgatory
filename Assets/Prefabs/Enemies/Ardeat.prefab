@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 4734074053031569772}
   - component: {fileID: 4734074053031569775}
   - component: {fileID: 4734074053031569773}
-  - component: {fileID: 4734074053031569763}
   - component: {fileID: 8539680705709922654}
+  - component: {fileID: 9010024814864823673}
   m_Layer: 6
   m_Name: Ardeat
   m_TagString: Untagged
@@ -135,8 +135,24 @@ MonoBehaviour:
   fireballPrefab: {fileID: 6614948005928269164, guid: 85f92f47fee8507429366d667edd6e1b, type: 3}
   pointFire: {fileID: 4734074052327138210}
   fireballCooldown: 2
-  initialDelay: 3
---- !u!60 &4734074053031569763
+  canShoot: 0
+  initialDelay: 0.5
+  attackDistance: 15
+--- !u!114 &8539680705709922654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734074053031569774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359e39b7b2fa20f41811a91d3b86e50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentHealth: 0
+--- !u!60 &9010024814864823673
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,46 +177,32 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.62, y: -0.65999997}
-      - {x: 0.48999998, y: -0.65999997}
-      - {x: 0.41, y: -0.68}
-      - {x: 0, y: -0.48}
-      - {x: -0.08, y: -0.48}
-      - {x: 0.03, y: 0.07}
-      - {x: 0.16, y: 0.19}
-      - {x: 0.29999998, y: 0.049999997}
-      - {x: 0.65, y: 0.08}
-      - {x: 0.79999995, y: 0.26999998}
-      - {x: 0.79999995, y: 0.91999996}
-      - {x: 0.7, y: 1.02}
-      - {x: 0.64, y: 1.11}
-      - {x: 0.53, y: 1.1999999}
-      - {x: 0.08, y: 1.1999999}
-      - {x: -0.12, y: 1}
-      - {x: -0.21, y: 0.94}
-      - {x: -0.32999998, y: 0.81}
-      - {x: -0.41, y: 0.74}
-      - {x: -0.55, y: 0.62}
-      - {x: -0.74, y: 0.32}
-      - {x: -0.79999995, y: 0.14}
-      - {x: -0.79999995, y: -0.82}
-      - {x: -0.5, y: -1.12}
-      - {x: -0.32999998, y: -1.1999999}
-      - {x: 0.32, y: -1.1999999}
-      - {x: 0.42, y: -1.1}
-      - {x: 0.51, y: -1.04}
-      - {x: 0.65, y: -0.9}
---- !u!114 &8539680705709922654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4734074053031569774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359e39b7b2fa20f41811a91d3b86e50e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+    - - {x: 0.3692516, y: -0.88518566}
+      - {x: 0.28258494, y: -0.88518566}
+      - {x: 0.22925161, y: -0.898519}
+      - {x: -0.04408173, y: -0.76518565}
+      - {x: -0.09741506, y: -0.76518565}
+      - {x: -0.024081727, y: -0.39851898}
+      - {x: 0.062584944, y: -0.318519}
+      - {x: 0.15591827, y: -0.41185233}
+      - {x: 0.38925162, y: -0.39185232}
+      - {x: 0.4892516, y: -0.26518565}
+      - {x: 0.4892516, y: 0.16814768}
+      - {x: 0.42258495, y: 0.23481436}
+      - {x: 0.38258496, y: 0.29481435}
+      - {x: 0.3092516, y: 0.35481435}
+      - {x: 0.009251608, y: 0.35481435}
+      - {x: -0.12408173, y: 0.22148103}
+      - {x: -0.18408173, y: 0.18148102}
+      - {x: -0.26408175, y: 0.09481435}
+      - {x: -0.31741506, y: 0.048147686}
+      - {x: -0.4107484, y: -0.031852316}
+      - {x: -0.5374151, y: -0.23185232}
+      - {x: -0.57741505, y: -0.35185233}
+      - {x: -0.57741505, y: -0.99185234}
+      - {x: -0.37741506, y: -1.1918523}
+      - {x: -0.26408175, y: -1.2451857}
+      - {x: 0.1692516, y: -1.2451857}
+      - {x: 0.23591828, y: -1.178519}
+      - {x: 0.2959183, y: -1.138519}
+      - {x: 0.38925162, y: -1.0451857}

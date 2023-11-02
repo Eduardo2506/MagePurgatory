@@ -10,6 +10,7 @@ public class RondasController : MonoBehaviour
     private int ronda = 1;
     public EnemySpawner enemy;
 
+    private int maxEnemiesPerRound = 3;//
 
     public TextMeshProUGUI  textoRonda;
     public TextMeshProUGUI textoContador;
@@ -38,8 +39,12 @@ public class RondasController : MonoBehaviour
         yield return new WaitUntil(() => enemy.currentEnemies == enemy.maxEnemies && enemy.enemiesActuales == 0);
         StopCoroutine(corutina);
         ronda++;
-        if (ronda >= 5)
+
+        enemy.maxEnemies += maxEnemiesPerRound;
+
+        if (ronda >= 8)
         {
+            yield return new WaitForSeconds(3);
             panelVictoria.SetActive(true);
             Debug.Log("ganaste");
      

@@ -25,6 +25,12 @@ public class Bullet : MonoBehaviour
             lifeNabam.TakeDamage(damage);
             Destroy(gameObject);
         }
+        NabumTutorialLife tutorialNabumLife = collision.gameObject.GetComponent<NabumTutorialLife>();
+        if (tutorialNabumLife != null)
+        {
+            tutorialNabumLife.TakeDamage(damage);
+            Destroy(gameObject);
+        }
 
         BalrogLife balrogLife = collision.gameObject.GetComponent<BalrogLife>();
         if (balrogLife != null)
@@ -32,6 +38,13 @@ public class Bullet : MonoBehaviour
             balrogLife.TakeDamage(damage);
             Destroy(gameObject);
         }
+        BalroLifeTutorial balrogLifeTutorial = collision.gameObject.GetComponent<BalroLifeTutorial>();
+        if (balrogLifeTutorial != null)
+        {
+            balrogLifeTutorial.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
 
 
     }
@@ -42,6 +55,12 @@ public class Bullet : MonoBehaviour
         if (ardeatLive != null)
         {
             ardeatLive.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        ArdeatLifeTutorial ardeatLifeTutorial = collision.gameObject.GetComponent<ArdeatLifeTutorial>();
+        if (ardeatLifeTutorial != null)
+        {
+            ardeatLifeTutorial.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

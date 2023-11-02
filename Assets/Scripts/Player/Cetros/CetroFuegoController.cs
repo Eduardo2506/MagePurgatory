@@ -6,8 +6,8 @@ public class CetroFuegoController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    public float shootCooldown = 2.0f;
-    private float timeSinceLastShot = 0f;
+    public float shootCooldown = .9f;
+    private float timeSinceLastShot = .9f;
 
     public bool canShoot = true;
 

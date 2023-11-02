@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpController : MonoBehaviour
 {
@@ -11,7 +13,11 @@ public class PowerUpController : MonoBehaviour
 
     [SerializeField] private EnemySpawner panel;
 
-
+    public Image image; 
+    private void Start()
+    {
+        Debug.Log(image.name);
+    }
     public void PowerUps()
     {
         print("Activado");
@@ -41,11 +47,18 @@ public class PowerUpController : MonoBehaviour
         Item item = card.powerUp as Item;
         if (item != null)
         {
+            if (image != null)
+            {
+
+                image.sprite = item.image;
+            }
             for (int i = 0; i < cetros.Length; i++)
             {
                 Time.timeScale = 1f;
                 panel.panelToActivate.SetActive(false);
                 cetros[i].SetActive(i == item.index);
+
+
             }
             return;
         }

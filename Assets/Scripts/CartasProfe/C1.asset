@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: C1
   m_EditorClassIdentifier: 
   image: {fileID: 165929392, guid: 670fee320277dd0478162b5ae1e26515, type: 3}
-  text: CetroNormal
+  text: Cetro Normal
   index: 0

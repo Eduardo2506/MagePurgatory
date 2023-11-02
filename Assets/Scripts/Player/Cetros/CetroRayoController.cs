@@ -11,7 +11,7 @@ public class CetroRayoController : MonoBehaviour
     public bool canShoot = true;//
 
     public float shootCooldown = 0.5f;
-    private float timeSinceLastShot = 0f;
+    private float timeSinceLastShot = 0.5f;
 
     private void Start()
     {

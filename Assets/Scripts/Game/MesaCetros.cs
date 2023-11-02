@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MesaCetros : MonoBehaviour
 {
@@ -17,6 +18,21 @@ public class MesaCetros : MonoBehaviour
     [SerializeField] private GameObject cetroTierra;
 
     [SerializeField] PlayerMovement panelCetros;
+
+    public Image cetroPrincipal;
+    public Image Cetro2;
+    public Image Cetro3;
+    public Image Cetro4;
+    public Image Cetro5;
+
+    private void Start()
+    {
+        cetroPrincipal.enabled = false;
+        Cetro2.enabled = false;
+        Cetro3.enabled = false;
+        Cetro4.enabled = false;
+        Cetro5.enabled = false;
+    }
     public void CetroNormal()
     {
         Time.timeScale = 1f;
@@ -34,6 +50,13 @@ public class MesaCetros : MonoBehaviour
         cetroFuego.SetActive(false);
 
         cetroNormal.SetActive(true);
+
+        cetroPrincipal.enabled = true;
+        Cetro2.enabled = false;
+        Cetro3.enabled = false;
+        Cetro4.enabled = false;
+        Cetro5.enabled = false;
+
         panelCetros.panelMesaCetros.SetActive(false);
     }
     public void CetroFuego()
@@ -52,6 +75,13 @@ public class MesaCetros : MonoBehaviour
         cetroTierra.SetActive(false);
 
         cetroFuego.SetActive(true);
+
+        cetroPrincipal.enabled = false;
+        Cetro2.enabled = true;
+        Cetro3.enabled = false;
+        Cetro4.enabled = false;
+        Cetro5.enabled = false;
+
         panelCetros.panelMesaCetros.SetActive(false);
     }
     public void CetroHielo()
@@ -71,6 +101,13 @@ public class MesaCetros : MonoBehaviour
         cetroTierra.SetActive(false);
 
         cetroHielo.SetActive(true);
+
+        cetroPrincipal.enabled = false;
+        Cetro2.enabled = false;
+        Cetro3.enabled = true;
+        Cetro4.enabled = false;
+        Cetro5.enabled = false;
+
         panelCetros.panelMesaCetros.SetActive(false);
     }
     public void CetroRayo()
@@ -90,6 +127,13 @@ public class MesaCetros : MonoBehaviour
         cetroHielo.SetActive(false);
 
         cetroRayo.SetActive(true);
+
+        cetroPrincipal.enabled = false;
+        Cetro2.enabled = false;
+        Cetro3.enabled = false;
+        Cetro4.enabled = true;
+        Cetro5.enabled = false;
+
         panelCetros.panelMesaCetros.SetActive(false);
     }
     public void CetroTierra()
@@ -109,6 +153,13 @@ public class MesaCetros : MonoBehaviour
         cetroRayo.SetActive(false);
 
         cetroTierra.SetActive(true);
+
+        cetroPrincipal.enabled = false;
+        Cetro2.enabled = false;
+        Cetro3.enabled = false;
+        Cetro4.enabled = false;
+        Cetro5.enabled = true;
+
         panelCetros.panelMesaCetros.SetActive(false);
     }
 }
