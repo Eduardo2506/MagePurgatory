@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4633563552155519192}
   - component: {fileID: 4633563552155519199}
   - component: {fileID: 3582551495596593460}
+  - component: {fileID: 734399204709779789}
   m_Layer: 0
   m_Name: NabamTutorial
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 972536833
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3abf566291a488247835a6a8ce746c0c, type: 3}
+  m_Sprite: {fileID: 1389849334, guid: 761b68721fe741e409bcf6ec6d2cb1ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,6 +130,27 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.082754016, y: 0.23171134}
+  m_Offset: {x: 0.009717882, y: 0.0026648045}
   serializedVersion: 2
-  m_Radius: 0.30952382
+  m_Radius: 0.28546423
+--- !u!95 &734399204709779789
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633563552155519198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f80545cbdb2d96a4dac4a82b33001b94, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

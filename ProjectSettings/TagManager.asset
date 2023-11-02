@@ -11,6 +11,7 @@ TagManager:
   - Mesa
   - Enemies
   - PowerUps
+  - Paredes
   layers:
   - Default
   - TransparentFX

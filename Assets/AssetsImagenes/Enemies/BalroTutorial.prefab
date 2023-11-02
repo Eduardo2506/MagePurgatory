@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 979248553716019012}
   - component: {fileID: 979248553716019015}
   - component: {fileID: 979248553716019014}
-  - component: {fileID: 979248553716019033}
+  - component: {fileID: 4697717040794502415}
+  - component: {fileID: 5240352669666184575}
   m_Layer: 6
   m_Name: BalroTutorial
   m_TagString: Enemy
@@ -73,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 972536833
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a37f07c0b3cc5b2489564ab76f3c8c8d, type: 3}
+  m_Sprite: {fileID: -1632520750, guid: f428108f0df9eca468bd212dde6bfd10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
---- !u!60 &979248553716019033
+--- !u!60 &4697717040794502415
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +133,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.52917314, y: 0.21326172}
-    oldSize: {x: 2.642857, y: 1.9285715}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6666667, y: 1.3333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -141,42 +142,43 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.1800424, y: 0.2744238}
-      - {x: 1.2443281, y: 0.35299525}
-      - {x: 1.2443281, y: 0.81728095}
-      - {x: 1.1871853, y: 0.81728095}
-      - {x: 1.201471, y: 1.0958525}
-      - {x: 1.1228995, y: 1.1172811}
-      - {x: 1.1157566, y: 1.2315668}
-      - {x: 1.0657567, y: 1.3244239}
-      - {x: 0.8943281, y: 1.467281}
-      - {x: 0.7728995, y: 1.517281}
-      - {x: -0.06995762, y: 1.517281}
-      - {x: -0.1913862, y: 1.4744239}
-      - {x: -0.21281476, y: 1.3958524}
-      - {x: -0.33424333, y: 1.4029953}
-      - {x: -0.3556719, y: 1.3244239}
-      - {x: -0.548529, y: 1.3315667}
-      - {x: -0.9056719, y: 0.9744239}
-      - {x: -1.048529, y: 0.9029952}
-      - {x: -1.1199577, y: 0.8315667}
-      - {x: -1.2271005, y: 0.75299525}
-      - {x: -1.3556719, y: 0.6315667}
-      - {x: -1.398529, y: 0.5387095}
-      - {x: -1.398529, y: 0.0029952459}
-      - {x: -1.3413862, y: 0.0029952459}
-      - {x: -1.3556719, y: -0.27557617}
-      - {x: -1.2913862, y: -0.36129048}
-      - {x: -1.2056719, y: -0.41129047}
-      - {x: 0.90147096, y: -0.41129047}
-      - {x: 0.9800424, y: -0.34700474}
-      - {x: 0.98718524, y: 0.060138103}
-      - {x: 1.0371852, y: 0.13156667}
-    - - {x: -0.5199576, y: -0.21843332}
-      - {x: -0.4913862, y: -0.21843332}
-      - {x: -0.4913862, y: -0.24700476}
-      - {x: -0.5199576, y: -0.24700476}
-    - - {x: -0.5913862, y: -0.075576186}
-      - {x: -0.5628148, y: -0.075576186}
-      - {x: -0.5628148, y: -0.17557618}
-      - {x: -0.5913862, y: -0.17557618}
+    - - {x: 0.72320366, y: 0.36860418}
+      - {x: 0.38354254, y: 0.6787661}
+      - {x: -0.5676117, y: 0.6719568}
+      - {x: -0.90486956, y: 0.25530863}
+      - {x: -1.157362, y: -0.3899603}
+      - {x: -1.1633759, y: -0.6653557}
+      - {x: -1.0633245, y: -0.66810036}
+      - {x: -0.6973481, y: -0.2996993}
+      - {x: -0.43484664, y: -0.30585337}
+      - {x: -0.59883547, y: -0.66254044}
+      - {x: -0.35959148, y: -0.65967655}
+      - {x: -0.066078186, y: -0.2516079}
+      - {x: -0.10933733, y: -0.6426449}
+      - {x: 0.107783794, y: -0.6368513}
+      - {x: 0.24337292, y: -0.3410244}
+      - {x: 0.6664543, y: -0.66217184}
+      - {x: 0.8417181, y: -0.41550714}
+      - {x: 1.0478797, y: 0.03833103}
+      - {x: 1.1645631, y: 0.2744916}
+--- !u!95 &5240352669666184575
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979248553716019032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cd0c14327c5ae24fb7fc991a6138b43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

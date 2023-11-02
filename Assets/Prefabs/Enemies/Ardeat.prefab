@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734074052327138221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.529, y: -0.01, z: 0}
+  m_LocalPosition: {x: 0.57, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 4734074053031569775}
   - component: {fileID: 4734074053031569773}
   - component: {fileID: 8539680705709922654}
-  - component: {fileID: 9010024814864823673}
+  - component: {fileID: 2991458656904703549}
+  - component: {fileID: 4932783793308240351}
   m_Layer: 6
   m_Name: Ardeat
   m_TagString: Untagged
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 972536833
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89c1ac046d8394e4787f6dbf7b7a3b48, type: 3}
+  m_Sprite: {fileID: 462232117, guid: 7b45b403a08ccf141be04b0c2876b7c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +138,7 @@ MonoBehaviour:
   fireballCooldown: 2
   canShoot: 0
   initialDelay: 0.5
-  attackDistance: 15
+  attackDistance: 6
 --- !u!114 &8539680705709922654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 0
---- !u!60 &9010024814864823673
+--- !u!60 &2991458656904703549
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +169,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.54132664, y: 0.77824104}
-    oldSize: {x: 1.0666667, y: 1.6}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3333334, y: 2.6666667}
     newSize: {x: 1.6, y: 2.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,32 +178,35 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3692516, y: -0.88518566}
-      - {x: 0.28258494, y: -0.88518566}
-      - {x: 0.22925161, y: -0.898519}
-      - {x: -0.04408173, y: -0.76518565}
-      - {x: -0.09741506, y: -0.76518565}
-      - {x: -0.024081727, y: -0.39851898}
-      - {x: 0.062584944, y: -0.318519}
-      - {x: 0.15591827, y: -0.41185233}
-      - {x: 0.38925162, y: -0.39185232}
-      - {x: 0.4892516, y: -0.26518565}
-      - {x: 0.4892516, y: 0.16814768}
-      - {x: 0.42258495, y: 0.23481436}
-      - {x: 0.38258496, y: 0.29481435}
-      - {x: 0.3092516, y: 0.35481435}
-      - {x: 0.009251608, y: 0.35481435}
-      - {x: -0.12408173, y: 0.22148103}
-      - {x: -0.18408173, y: 0.18148102}
-      - {x: -0.26408175, y: 0.09481435}
-      - {x: -0.31741506, y: 0.048147686}
-      - {x: -0.4107484, y: -0.031852316}
-      - {x: -0.5374151, y: -0.23185232}
-      - {x: -0.57741505, y: -0.35185233}
-      - {x: -0.57741505, y: -0.99185234}
-      - {x: -0.37741506, y: -1.1918523}
-      - {x: -0.26408175, y: -1.2451857}
-      - {x: 0.1692516, y: -1.2451857}
-      - {x: 0.23591828, y: -1.178519}
-      - {x: 0.2959183, y: -1.138519}
-      - {x: 0.38925162, y: -1.0451857}
+    - - {x: 0.17017555, y: 0.7253065}
+      - {x: 0.04159069, y: 0.56696486}
+      - {x: -0.23071003, y: 0.608999}
+      - {x: -0.447217, y: 0.80138755}
+      - {x: -0.69845647, y: 0.4504177}
+      - {x: -0.22927952, y: 0.08908343}
+      - {x: -0.5077178, y: -0.74568224}
+      - {x: -0.24372101, y: -0.85164785}
+      - {x: -0.043303788, y: -0.30010456}
+      - {x: 0.4567232, y: 0.24420238}
+      - {x: 0.68785924, y: 0.68354195}
+--- !u!95 &4932783793308240351
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4734074053031569774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16ff385e191708046a82b320a3838dba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

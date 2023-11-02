@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1782790787050830601}
   - component: {fileID: 1782790787050830603}
   - component: {fileID: -4245808099230382316}
-  - component: {fileID: 4257306121995516782}
+  - component: {fileID: 7399481900487530378}
+  - component: {fileID: 5778008713775875435}
   m_Layer: 6
   m_Name: Balrog
   m_TagString: Enemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 972536833
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a37f07c0b3cc5b2489564ab76f3c8c8d, type: 3}
+  m_Sprite: {fileID: -1632520750, guid: f428108f0df9eca468bd212dde6bfd10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -116,7 +117,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 80
   currentHealth: 0
---- !u!60 &4257306121995516782
+--- !u!95 &7399481900487530378
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782790787050830598}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cd0c14327c5ae24fb7fc991a6138b43, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &5778008713775875435
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +154,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.52917314, y: 0.21326172}
-    oldSize: {x: 2.642857, y: 1.9285715}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5555556, y: 1.7777778}
     newSize: {x: 3.7, y: 2.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -141,42 +163,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.1800424, y: 0.2744238}
-      - {x: 1.2443281, y: 0.35299525}
-      - {x: 1.2443281, y: 0.81728095}
-      - {x: 1.1871853, y: 0.81728095}
-      - {x: 1.201471, y: 1.0958525}
-      - {x: 1.1228995, y: 1.1172811}
-      - {x: 1.1157566, y: 1.2315668}
-      - {x: 1.0657567, y: 1.3244239}
-      - {x: 0.8943281, y: 1.467281}
-      - {x: 0.7728995, y: 1.517281}
-      - {x: -0.06995762, y: 1.517281}
-      - {x: -0.1913862, y: 1.4744239}
-      - {x: -0.21281476, y: 1.3958524}
-      - {x: -0.33424333, y: 1.4029953}
-      - {x: -0.3556719, y: 1.3244239}
-      - {x: -0.548529, y: 1.3315667}
-      - {x: -0.9056719, y: 0.9744239}
-      - {x: -1.048529, y: 0.9029952}
-      - {x: -1.1199577, y: 0.8315667}
-      - {x: -1.2271005, y: 0.75299525}
-      - {x: -1.3556719, y: 0.6315667}
-      - {x: -1.398529, y: 0.5387095}
-      - {x: -1.398529, y: 0.0029952459}
-      - {x: -1.3413862, y: 0.0029952459}
-      - {x: -1.3556719, y: -0.27557617}
-      - {x: -1.2913862, y: -0.36129048}
-      - {x: -1.2056719, y: -0.41129047}
-      - {x: 0.90147096, y: -0.41129047}
-      - {x: 0.9800424, y: -0.34700474}
-      - {x: 0.98718524, y: 0.060138103}
-      - {x: 1.0371852, y: 0.13156667}
-    - - {x: -0.5199576, y: -0.21843332}
-      - {x: -0.4913862, y: -0.21843332}
-      - {x: -0.4913862, y: -0.24700476}
-      - {x: -0.5199576, y: -0.24700476}
-    - - {x: -0.5913862, y: -0.075576186}
-      - {x: -0.5628148, y: -0.075576186}
-      - {x: -0.5628148, y: -0.17557618}
-      - {x: -0.5913862, y: -0.17557618}
+    - - {x: 1.0589966, y: 0.4382062}
+      - {x: 0.5940137, y: 0.88225114}
+      - {x: -0.75578344, y: 0.8888889}
+      - {x: -1.3431414, y: 0.07930846}
+      - {x: -1.5339571, y: -0.8888889}
+      - {x: -1.2302188, y: -0.8930361}
+      - {x: -0.93521035, y: -0.3759308}
+      - {x: -0.6405035, y: -0.37837887}
+      - {x: -0.7848749, y: -0.83460283}
+      - {x: -0.48899353, y: -0.8584206}
+      - {x: -0.2457639, y: -0.4422636}
+      - {x: -0.105760455, y: -0.41622734}
+      - {x: -0.08220661, y: -0.8500562}
+      - {x: 0.17848015, y: -0.8594096}
+      - {x: 0.21009731, y: -0.40071416}
+      - {x: 0.5061538, y: -0.59441376}
+      - {x: 0.8288021, y: -0.87123156}
+      - {x: 1.0357158, y: -0.857086}
+      - {x: 1.2583344, y: -0.0011892915}
+      - {x: 1.5877546, y: 0.41184908}

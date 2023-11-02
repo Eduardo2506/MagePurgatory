@@ -124,7 +124,7 @@ public class ArdearTUtorial : MonoBehaviour
 
 
             Vector2 direction = (player.position - pointFire.position).normalized;
-
+            fireball.transform.right = direction;
             Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
             rb.velocity = direction * fireball.GetComponent<FireBall>().fireballForce;
         }

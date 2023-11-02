@@ -17,6 +17,10 @@ public class FireBall : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Paredes"))
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
      
