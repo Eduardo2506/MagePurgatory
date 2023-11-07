@@ -32,7 +32,10 @@ public class BulletTierra : MonoBehaviour
             balrogLife.TakeDamage(damage);
             Destroy(gameObject);
         }
-
+        if (collision.gameObject.CompareTag("Paredes"))
+        {
+            DestroyBullet();
+        }
 
     }
 
