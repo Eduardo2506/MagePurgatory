@@ -80,7 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
          mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
-         transform.Translate(moveInput * Time.deltaTime * moveSpeed);
+         //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
+         rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
          animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
 
         if (isBeingPushed && Time.time >= pushEndTime)//
