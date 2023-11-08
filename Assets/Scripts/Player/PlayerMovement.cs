@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CetroRayoController cetroRayoController;
     [SerializeField] private CetroTierraController cetroTierraController;
 
+    private float dash =  1;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -80,9 +81,10 @@ public class PlayerMovement : MonoBehaviour
 
          mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
-         //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
-         rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
-         animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+        if (dash > 1) dash -= Time.deltaTime * moveSpeed; else dash = 1;
+        //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
+        rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed) * dash;
+        animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
 
         if (isBeingPushed && Time.time >= pushEndTime)//
         {
@@ -238,9 +240,9 @@ public class PlayerMovement : MonoBehaviour
         float dashCostPercentage = 0.09f; //0.09f
         if (energyBar.fillAmount - dashCostPercentage >= 0)
         {
-            Vector2 dashDirection = moveInput.normalized;
-            rb.velocity = dashDirection * moveSpeed * 3f;
-
+            //Vector2 dashDirection = moveInput.normalized;
+            //rb.velocity = dashDirection * moveSpeed * 3f;
+            dash = 3;
             energyBar.fillAmount -= dashCostPercentage;
 
             lastEnergyUsedTime = Time.time;//

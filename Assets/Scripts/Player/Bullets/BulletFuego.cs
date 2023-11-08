@@ -36,6 +36,10 @@ public class BulletFuego : MonoBehaviour
             balrogLife.TakeDamage(burnDamage);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Paredes"))
+        {
+            DestroyBullet();
+        }
 
 
     }
