@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveInput.x < 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX =  true;
         }
         else if (moveInput.x > 0)
         {
