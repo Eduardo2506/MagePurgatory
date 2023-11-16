@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027fea7d9c164674d85f6797f23ba50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
   damage: 20
   attackCooldown: 1
 --- !u!114 &-4245808099230382316
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cccceca5677c204ea4cfb930199b7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
+  maxHealth: 60
   currentHealth: 0
 --- !u!95 &7399481900487530378
 Animator:

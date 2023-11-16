@@ -63,7 +63,7 @@ public class Nabam : MonoBehaviour
         {
             if (!isSlowed)
             {
-                moveSpeed /= 5;
+                moveSpeed /= 3;
                 isSlowed = true;
                 StartCoroutine(ResetSpeedAfterDelay());
             }
@@ -110,7 +110,12 @@ public class Nabam : MonoBehaviour
         float pushForce = 2f;
         playerMovement.Push(pushDirection, pushForce);
 
-        GetComponentInParent<EnemySpawner>().EnemyKilled();
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyKilled();
+        }
+        //GetComponentInParent<EnemySpawner>().EnemyKilled();
 
 
         Destroy(gameObject);

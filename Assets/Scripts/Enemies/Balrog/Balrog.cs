@@ -93,7 +93,7 @@ public class Balrog : MonoBehaviour
         {
             if (!isSlowed)
             {
-                moveSpeed /= 2;
+                moveSpeed /= 3;
                 isSlowed = true;
                 StartCoroutine(ResetSpeedAfterDelay());
             }

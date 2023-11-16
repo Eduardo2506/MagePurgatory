@@ -138,7 +138,6 @@ MonoBehaviour:
   fireballCooldown: 2
   canShoot: 0
   initialDelay: 0.5
-  attackDistance: 6
 --- !u!114 &8539680705709922654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359e39b7b2fa20f41811a91d3b86e50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 35
   currentHealth: 0
 --- !u!60 &2991458656904703549
 PolygonCollider2D:

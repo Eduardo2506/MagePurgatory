@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1459352459, guid: 670fee320277dd0478162b5ae1e26515, type: 3}
   text: Cetro Hielo
+  description: "Da\xF1o: 9\nRelentizacion: 4s\nTiempo de Disparo: 0.45s"
   index: 2

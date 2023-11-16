@@ -7,6 +7,7 @@ public class LifeNabam : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -25,6 +26,11 @@ public class LifeNabam : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
-        GetComponentInParent<EnemySpawner>().EnemyKilled();
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyKilled();
+        }
+        //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
 }

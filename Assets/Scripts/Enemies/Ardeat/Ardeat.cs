@@ -22,7 +22,6 @@ public class Ardeat : MonoBehaviour
 
     private bool isFrozen = false;
 
-    public float attackDistance = 5f;
     private void Start()
     {
         originalMoveSpeed = moveSpeed; 
@@ -41,17 +40,6 @@ public class Ardeat : MonoBehaviour
         if (!isFrozen)
         {
             Vector2 direction = player.position - transform.position;
-            float distanceToPlayer = direction.magnitude;
-            if (distanceToPlayer <= attackDistance)
-            {
-                moveSpeed = 0f;
-                canShoot = true;
-            }
-            else
-            {
-                moveSpeed = 3f;
-                canShoot = false;
-            }
             direction.Normalize();
 
             if (direction.x < 0)
@@ -88,6 +76,7 @@ public class Ardeat : MonoBehaviour
             if (!isSlowed)
             {
                 moveSpeed /= 3;
+                Debug.Log("frio");
                 isSlowed = true;
                 StartCoroutine(ResetSpeedAfterDelay());
             }

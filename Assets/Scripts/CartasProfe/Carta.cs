@@ -6,6 +6,7 @@ public class Carta : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     public PowerUps powerUp;
 
@@ -13,6 +14,7 @@ public class Carta : MonoBehaviour
     {
         image.sprite = powerUp.image;
         text.text = powerUp.text;
+        descriptionText.text = powerUp.description;//
         this.powerUp = powerUp;
     }
 }

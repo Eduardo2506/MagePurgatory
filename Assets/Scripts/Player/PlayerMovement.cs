@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Image energyBar;
     [SerializeField] public Image healthBar;
    
-    private float energyRechargeDelay = 10.0f; 
+    public float energyRechargeDelay = 10.0f; 
     private float lastEnergyUsedTime;
 
     [SerializeField] public GameObject panelMesaCetros;
@@ -109,14 +109,17 @@ public class PlayerMovement : MonoBehaviour
         //dash
         if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastDashTime >= dashCooldown && canDashTutorial)
         {
-            StartDash();
+            if (moveInput.magnitude > 0.1f)
+            {
+                StartDash();
+            }
         }
 
         float timeLastDash = Time.time - lastDashTime;
         float cooldownPercentage = Mathf.Clamp01(timeLastDash / dashCooldown);
 
         //teleport
-        if (Input.GetKeyDown(KeyCode.T) && canTeleport && canTeleportTutorial)
+        if (Input.GetMouseButtonDown(1) && canTeleport && canTeleportTutorial)
         {
             animator.SetBool("isTeleporting", false);
             TeleportToMousePosition();
