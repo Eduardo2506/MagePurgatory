@@ -44238,7 +44238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  dashCooldown: 3
+  dashCooldown: 2
   dashDuration: 1
   playerTransform: {fileID: 1168664294}
   teleportCooldown: 5
