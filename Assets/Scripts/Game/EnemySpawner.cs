@@ -7,13 +7,15 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;  
     public Transform[] spawnPoints;    
+    public float spawnInterval = 2f;
+    public int[] enemyTypeCounts;
     public int maxEnemies = 7;
 
 
+    public int currentEnemyType = 0;
     public int currentEnemies = 0;   
     public int enemiesActuales = 0;
 
-    public float spawnInterval = 2f;
     private bool spawningEnabled = true;
 
     public GameObject panelToActivate;
@@ -57,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         textoContador.gameObject.SetActive(false);
 
         // Comenzar a spawnear enemigos.
-        StartCoroutine(SpawnEnemiesWithInterval());
+        //StartCoroutine(SpawnEnemiesWithInterval());
 
         //ActivateEleccion();
     }
@@ -77,18 +79,30 @@ public class EnemySpawner : MonoBehaviour
     //    StartCoroutine(SpawnEnemiesWithInterval());
     //    ActivateEleccion();
     //}
-    public IEnumerator SpawnEnemiesWithInterval()
+    //public IEnumerator SpawnEnemiesWithInterval()
+    //{
+    //    while (true)
+    //    {
+    //        if (currentEnemies < maxEnemies)
+    //        {
+    //            SpawnEnemy();
+    //        }
+    //        yield return new WaitForSeconds(spawnInterval);
+    //    }
+    //}
+
+    IEnumerator SpawnEnemiesWithInterval(GameObject enemyPrefab, int count, float interval)
     {
-        while (true)
+        for (int i = 0; i < count; i++)
         {
-            if (currentEnemies < maxEnemies)
-            {
-                SpawnEnemy();
-            }
-            yield return new WaitForSeconds(spawnInterval);
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+
+            enemiesActuales++;
+
+            yield return new WaitForSeconds(interval);
         }
     }
-
     private void Update()
     {
         //if (currentEnemies < maxEnemies)
@@ -97,25 +111,56 @@ public class EnemySpawner : MonoBehaviour
         //}
     }
 
-    private void SpawnEnemy()
+    public IEnumerator SpawnEnemy()
     {
-        
-        int enemys = Random.Range(0, enemyPrefabs.Length);
-        int spawnPointEnemies = Random.Range(0, spawnPoints.Length);
+        int totalEnemiesSpawned = 0;
 
-        /*GameObject enemy =*/ Instantiate(enemyPrefabs[enemys], spawnPoints[spawnPointEnemies].position, Quaternion.identity, transform);
+        while (currentEnemyType < enemyPrefabs.Length && totalEnemiesSpawned < maxEnemies)
+        {
+            int remainingEnemiesToSpawn = Mathf.Min(maxEnemies - totalEnemiesSpawned, enemyTypeCounts[currentEnemyType]);
 
-        
-        currentEnemies++;
-        enemiesActuales++;
+            yield return SpawnEnemiesWithInterval(enemyPrefabs[currentEnemyType], remainingEnemiesToSpawn, spawnInterval);
 
-       
-        Debug.Log("Enemigos Actuales: " + enemiesActuales);
+            totalEnemiesSpawned += remainingEnemiesToSpawn;
+            currentEnemies += remainingEnemiesToSpawn;
 
+            currentEnemies = Mathf.Min(currentEnemies, maxEnemies);
 
-        ActivateEleccion();
+            yield return WaitForEnemiesToBeDefeated();
+
+            currentEnemyType++;
+
+            if (currentEnemyType >= enemyPrefabs.Length)
+                currentEnemyType = 0;
+        }
     }
 
+    //private void SpawnEnemy()
+    //{
+
+    //    int enemys = Random.Range(0, enemyPrefabs.Length);
+    //    int spawnPointEnemies = Random.Range(0, spawnPoints.Length);
+
+    //    /*GameObject enemy =*/ Instantiate(enemyPrefabs[enemys], spawnPoints[spawnPointEnemies].position, Quaternion.identity, transform);
+
+
+    //    currentEnemies++;
+    //    enemiesActuales++;
+
+
+    //    Debug.Log("Enemigos Actuales: " + enemiesActuales);
+
+
+    //    ActivateEleccion();
+    //}
+    IEnumerator WaitForEnemiesToBeDefeated()
+    {
+        while (enemiesActuales > 0)
+        {
+            yield return null;
+        }
+        enemiesActuales = 0;
+    }
     public void EnemyKilled()
     {
         
@@ -169,8 +214,13 @@ public class EnemySpawner : MonoBehaviour
             //    cardDisplay.artworkImage.sprite = allCards[i].artwork;
             //}
         }
+        //PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        //if (player != null)
+        //{
+        //    player.moveSpeed = 0;
+        //}
+        Time.timeScale = 0f;//0f
 
-        Time.timeScale = 1f;//0f
 
         cetroController.canShoot = false;
     }

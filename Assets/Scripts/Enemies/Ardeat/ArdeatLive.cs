@@ -25,6 +25,11 @@ public class ArdeatLive : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
-        GetComponentInParent<EnemySpawner>().EnemyKilled();
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+        {
+            spawner.EnemyKilled();
+        }
+        //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
 }
