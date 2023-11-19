@@ -610,7 +610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 286d6618edf7a4247903e517e513319a, type: 3}
+  m_Sprite: {fileID: 1199158234, guid: 4a23938ebcafcfb4786c8b61d56607eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programador\n\nDise\xF1ador\n\nArtistas"
+  m_text: "PROGRAMADOR\n\nDISE\xD1ADOR\n\nARTISTAS"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c807b071f97201e4eaf0176bd9ef8e9d, type: 2}
   m_sharedMaterial: {fileID: 6628411402195338557, guid: c807b071f97201e4eaf0176bd9ef8e9d, type: 2}
