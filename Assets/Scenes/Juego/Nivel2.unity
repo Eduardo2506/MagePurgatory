@@ -354,6 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &12018397
 GameObject:
@@ -546,7 +547,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1068,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2012505525}
   text: {fileID: 1324809049}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &101766624
 GameObject:
@@ -1457,6 +1459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1559570253}
   text: {fileID: 377902964}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &148901932
 GameObject:
@@ -3440,6 +3443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &421905582
 GameObject:
@@ -3692,7 +3696,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4207,6 +4211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 448663194}
   text: {fileID: 416123910}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &490049741
 GameObject:
@@ -4481,7 +4486,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4882,6 +4887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &574236481
 GameObject:
@@ -32720,7 +32726,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -42939,7 +42945,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44101,6 +44107,7 @@ MonoBehaviour:
   pushDuration: 1.5
   energyBar: {fileID: 1633019123}
   healthBar: {fileID: 87545365}
+  energyRechargeDelay: 10
   panelMesaCetros: {fileID: 0}
   canDashTutorial: 1
   canTeleportTutorial: 1
@@ -44482,10 +44489,12 @@ MonoBehaviour:
   - {fileID: 1871408136}
   - {fileID: 938938501}
   - {fileID: 807167730}
+  spawnInterval: 1.6
+  enemyTypeCounts: 
   maxEnemies: 16
+  currentEnemyType: 0
   currentEnemies: 0
   enemiesActuales: 0
-  spawnInterval: 1.6
   panelToActivate: {fileID: 1856054288}
   cetroController: {fileID: 1453469533}
   textoContador: {fileID: 0}
@@ -45797,6 +45806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!4 &1574757706 stripped
 Transform:
@@ -47238,7 +47248,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47923,7 +47933,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -50588,7 +50598,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -55386,7 +55396,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -55754,6 +55764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &2022125827
 GameObject:
@@ -55904,6 +55915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &2039726508
 GameObject:
@@ -56189,6 +56201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  descriptionText: {fileID: 0}
   powerUp: {fileID: 0}
 --- !u!1 &2053742058
 GameObject:
@@ -56243,7 +56256,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -68537,7 +68550,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
