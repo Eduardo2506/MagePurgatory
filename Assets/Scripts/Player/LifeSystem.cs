@@ -55,6 +55,7 @@ public class LifeSystem : MonoBehaviour
 
     private void Die()
     {
+
         panelPerdiste.SetActive(true);
         StartCoroutine(ShowButtonsAfterDelay(2.0f));
     }
