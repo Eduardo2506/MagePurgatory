@@ -63,7 +63,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CetroRayoController cetroRayoController;
     [SerializeField] private CetroTierraController cetroTierraController;
 
-    private float dash =  1;
+    private float dash = 1;
+    [SerializeField] private AudioSource dashAudioSource;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -249,6 +250,11 @@ public class PlayerMovement : MonoBehaviour
             energyBar.fillAmount -= dashCostPercentage;
 
             lastEnergyUsedTime = Time.time;//
+
+            if (dashAudioSource != null && !dashAudioSource.isPlaying)
+            {
+                dashAudioSource.Play();
+            }
 
         }
         else

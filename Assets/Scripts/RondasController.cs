@@ -11,6 +11,8 @@ public class RondasController : MonoBehaviour
     private int ronda = 1;
     public EnemySpawner enemy;
 
+    public LifeSystem playerLife;
+
     //private int maxEnemiesPerRound = 3;//
 
     public TextMeshProUGUI  textoRonda;
@@ -33,6 +35,9 @@ public class RondasController : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         textoContador.gameObject.SetActive(false);
+
+        playerLife.currentHealth = playerLife.maxHealth;
+        playerLife.UpdateHealthBar();
 
         //spawn
         Coroutine corutina = StartCoroutine(enemy.SpawnEnemy());

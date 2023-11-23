@@ -6,6 +6,8 @@ public class BalrogLife : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public GameObject dropVida;
+    public float dropProbability = 0.8f;
 
     private void Start()
     {
@@ -24,6 +26,11 @@ public class BalrogLife : MonoBehaviour
 
     private void Die()
     {
+        if (Random.value <= dropProbability)
+        {
+            DropObject();
+        }
+
         gameObject.SetActive(false);
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         if (spawner != null)
@@ -31,5 +38,12 @@ public class BalrogLife : MonoBehaviour
             spawner.EnemyKilled();
         }
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
+    }
+    private void DropObject()
+    {
+        if (dropVida != null)
+        {
+            Instantiate(dropVida, transform.position, Quaternion.identity);
+        }
     }
 }

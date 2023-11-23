@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 25
   currentHealth: 0
+  dropVida: {fileID: 320955536240043508, guid: c7caeb32182e32c4da2c38de34756c10, type: 3}
 --- !u!58 &7958393970655151033
 CircleCollider2D:
   m_ObjectHideFlags: 0
