@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 753d42cb98b1e5b4f932fd50bbe1e551
+guid: 238f9f6daa67a114cb0fbc86c9ba0003
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,85 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IDLE_MAGO_0
+      name: Bala_Rayo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 42
+        width: 53
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 500950f52634dc94db4f5df610ab2e78
-      internalID: -744121549
+      spriteID: e97746bc11794304c8d82bc07160e89d
+      internalID: -711711380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_MAGO_1
+      name: Bala_Rayo_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
+        y: 28
+        width: 53
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4663250e3f2cb9249985be069c75235d
-      internalID: 1227564019
+      spriteID: 908ef79af92321c4ebfd92ceee1ff011
+      internalID: -42752830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_MAGO_2
+      name: Bala_Rayo_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 14
+        width: 53
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468b0a2ac832acc428ffa7735d583ce5
-      internalID: -1682798553
+      spriteID: 16c7f4d3d80b58e419bb57681971f2d3
+      internalID: 1368362028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IDLE_MAGO_3
+      name: Bala_Rayo_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 53
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 142c569379dadf64399a5ea5ef327146
-      internalID: 400528243
+      spriteID: 9cdf3898a3b695c4998ce7f7afd2c170
+      internalID: -97099160
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IDLE_MAGO_0: -744121549
-      IDLE_MAGO_1: 1227564019
-      IDLE_MAGO_2: -1682798553
-      IDLE_MAGO_3: 400528243
+      Bala_Rayo_0: -711711380
+      Bala_Rayo_1: -42752830
+      Bala_Rayo_2: 1368362028
+      Bala_Rayo_3: -97099160
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

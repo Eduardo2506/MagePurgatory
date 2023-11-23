@@ -14,6 +14,8 @@ public class LifeSystem : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
 
+    public Image healthBar;
+
     private Color originalColor; // Almacenar el color original del SpriteRenderer
 
     private void Start()
@@ -63,7 +65,29 @@ public class LifeSystem : MonoBehaviour
         button1.SetActive(true);
         button2.SetActive(true);
     }
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+        // Actualizar la barra de vida
+        UpdateHealthBar();
+
+        // Resto del código de la función Heal...
+    }
+    public void UpdateHealthBar()
+    {
+        // Asegurarse de que la barra de vida esté asignada
+        if (healthBar != null)
+        {
+            // Calcular la proporción de vida actual
+            float healthRatio = (float)currentHealth / maxHealth;
+
+            // Actualizar el valor de fillAmount en la barra de vida
+            healthBar.fillAmount = healthRatio;
+        }
+    }
 }
+
 //{
 //    public int maxHealth = 100;
 //    public int currentHealth;

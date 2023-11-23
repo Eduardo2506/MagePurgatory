@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1f;
         cetro.canShoot = true;
+
         //player.moveSpeed = 10f;
         player.moveSpeed += 1; 
         velocidadPotenciadorCount++;
@@ -52,9 +53,15 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1f;
         cetro.canShoot = true;
-        lifePlayer.maxHealth += 5; 
-        lifePlayer.currentHealth += 5; 
-        vidaPotenciadorCount++;
+
+        if (lifePlayer != null)
+        {
+            // Aumentar la vida en 10
+            lifePlayer.Heal(10);
+        }
+        //lifePlayer.maxHealth += 5; 
+        //lifePlayer.currentHealth += 5; 
+        //vidaPotenciadorCount++;
         //lifePlayer.maxHealth = 150;
         //lifePlayer.currentHealth = 150;
         panel.panelToActivate.SetActive(false);

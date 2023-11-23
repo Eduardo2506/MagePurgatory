@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 35
   currentHealth: 0
+  dropVida: {fileID: 320955536240043508, guid: c7caeb32182e32c4da2c38de34756c10, type: 3}
+  dropProbability: 0.8
 --- !u!60 &2991458656904703549
 PolygonCollider2D:
   m_ObjectHideFlags: 0
