@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4755189792300110989}
   - component: {fileID: 4755189792300110988}
   - component: {fileID: 5525774506425475218}
-  - component: {fileID: 2987917687301350035}
   - component: {fileID: 7410977065732442841}
   - component: {fileID: 4136436779024435457}
+  - component: {fileID: 2728232052240943035}
   m_Layer: 9
   m_Name: Bala_Rayo_0
   m_TagString: Untagged
@@ -109,50 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &2987917687301350035
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4755189792300110991}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.53, y: 0.14}
-    newSize: {x: 0.53, y: 0.14}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.020931281, y: 0.010240011}
-      - {x: -0.05415067, y: -0.012708545}
-      - {x: -0.09055018, y: -0.023047918}
-      - {x: -0.1355032, y: -0.021413304}
-      - {x: -0.16322814, y: -0.018647086}
-      - {x: -0.265, y: 0.010399368}
-      - {x: -0.266117, y: 0.011346549}
-      - {x: -0.26276594, y: -0.010452315}
-      - {x: -0.16824491, y: -0.033191968}
-      - {x: -0.15489392, y: -0.048218273}
-      - {x: -0.11416191, y: -0.059045803}
-      - {x: -0.085792206, y: -0.05783799}
-      - {x: -0.006007716, y: -0.023253482}
-      - {x: 0.03700546, y: -0.016660154}
-      - {x: 0.13779259, y: 0.03890813}
-      - {x: 0.2648519, y: 0.012353809}
-      - {x: 0.26555854, y: 0.03042444}
-      - {x: 0.2242293, y: 0.044361852}
-      - {x: 0.16843197, y: 0.070558555}
 --- !u!114 &7410977065732442841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +145,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &2728232052240943035
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755189792300110991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19649191, y: 0.03518268}
+  serializedVersion: 2
+  m_Radius: 0.070499375

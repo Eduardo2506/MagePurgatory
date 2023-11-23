@@ -115,8 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52296c52119f7e40a1a43afdebb2030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
+  dropVida: {fileID: 320955536240043508, guid: c7caeb32182e32c4da2c38de34756c10, type: 3}
+  dropProbability: 0.8
 --- !u!60 &4697717040794502415
 PolygonCollider2D:
   m_ObjectHideFlags: 0

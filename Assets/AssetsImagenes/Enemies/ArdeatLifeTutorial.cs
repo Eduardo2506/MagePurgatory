@@ -6,6 +6,8 @@ public class ArdeatLifeTutorial : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public GameObject dropVida;
+    public float dropProbability = 0.8f;
 
     private void Start()
     {
@@ -14,6 +16,11 @@ public class ArdeatLifeTutorial : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (Random.value <= dropProbability)
+        {
+            DropObject();
+        }
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -26,5 +33,12 @@ public class ArdeatLifeTutorial : MonoBehaviour
     {
         gameObject.SetActive(false);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
+    }
+    private void DropObject()
+    {
+        if (dropVida != null)
+        {
+            Instantiate(dropVida, transform.position, Quaternion.identity);
+        }
     }
 }
