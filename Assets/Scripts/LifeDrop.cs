@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class LifeDrop : MonoBehaviour
 {
-    public int healthAmount = 5; // Cantidad de vida que proporciona
+    public int healthAmount = 5;
+    public float timeDestroy = 8f;
 
+    private void Start()
+    {
+        Destroy(gameObject, timeDestroy);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

@@ -23,6 +23,7 @@ public class RondasController : MonoBehaviour
         textoRonda.transform.parent.gameObject.SetActive(true);
         enemy.currentEnemies = 0;
         enemy.currentEnemyType = 0;//
+        //enemy.enemiesActuales = 0;/////
         //tiempo de espera al inicar
         textoRonda.text = $"Ronda: {ronda}";
         yield return new WaitForSeconds(3);
@@ -36,8 +37,9 @@ public class RondasController : MonoBehaviour
         }
         textoContador.gameObject.SetActive(false);
 
-        playerLife.currentHealth = playerLife.maxHealth;
-        playerLife.UpdateHealthBar();
+        //Subida max de vida
+        //playerLife.currentHealth = playerLife.maxHealth;
+        //playerLife.UpdateHealthBar();
 
         //spawn
         Coroutine corutina = StartCoroutine(enemy.SpawnEnemy());

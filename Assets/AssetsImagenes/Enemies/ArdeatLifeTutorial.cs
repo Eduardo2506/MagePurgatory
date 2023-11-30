@@ -16,11 +16,7 @@ public class ArdeatLifeTutorial : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (Random.value <= dropProbability)
-        {
-            DropObject();
-        }
-
+        
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -31,6 +27,10 @@ public class ArdeatLifeTutorial : MonoBehaviour
 
     private void Die()
     {
+        if (Random.value <= dropProbability)
+        {
+            DropObject();
+        }
         gameObject.SetActive(false);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }

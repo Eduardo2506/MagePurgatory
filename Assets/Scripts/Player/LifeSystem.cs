@@ -16,13 +16,13 @@ public class LifeSystem : MonoBehaviour
 
     public Image healthBar;
 
-    private Color originalColor; // Almacenar el color original del SpriteRenderer
+    private Color originalColor; 
 
     private void Start()
     {
         spriteRenderer = GetComponentInChildren <SpriteRenderer>();
         currentHealth = maxHealth;
-        originalColor = spriteRenderer.color; // Guardar el color original
+        originalColor = spriteRenderer.color; 
     }
 
     public void TakeDamage(int damage)
@@ -48,7 +48,7 @@ public class LifeSystem : MonoBehaviour
         {
             spriteRenderer.color = damageColor;
             yield return new WaitForSeconds(0.1f);
-            spriteRenderer.color = originalColor; // Restaurar el color original
+            spriteRenderer.color = originalColor; 
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -70,20 +70,15 @@ public class LifeSystem : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
-        // Actualizar la barra de vida
         UpdateHealthBar();
 
-        // Resto del código de la función Heal...
     }
     public void UpdateHealthBar()
     {
-        // Asegurarse de que la barra de vida esté asignada
         if (healthBar != null)
         {
-            // Calcular la proporción de vida actual
             float healthRatio = (float)currentHealth / maxHealth;
 
-            // Actualizar el valor de fillAmount en la barra de vida
             healthBar.fillAmount = healthRatio;
         }
     }

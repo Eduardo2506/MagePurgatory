@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem particulasDash;
     [SerializeField] private ParticleSystem particulasTp;
 
-    private bool isBeingPushed = false; 
+    private bool isPushed = false; 
     public float pushDuration = 0.5f; 
     private float pushEndTime = 0f;
 
@@ -65,6 +65,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float dash = 1;
     [SerializeField] private AudioSource dashAudioSource;
+    [SerializeField] private AudioSource walkAudioSource;
+    [SerializeField] private AudioSource tpAudioSource;
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -86,10 +89,22 @@ public class PlayerMovement : MonoBehaviour
         //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
         rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed) * dash;
         animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
-
-        if (isBeingPushed && Time.time >= pushEndTime)//
+        
+        if (Mathf.Abs(moveInput.x) > 0.1f || Mathf.Abs(moveInput.y) > 0.1f)
         {
-            isBeingPushed = false;
+            if (!walkAudioSource.isPlaying)
+            {
+                walkAudioSource.Play();
+            }
+        }
+        else
+        {
+            walkAudioSource.Stop();
+        }
+
+        if (isPushed && Time.time >= pushEndTime)//
+        {
+            isPushed = false;
             rb.velocity = Vector2.zero;
         }
         //mousePos.x = Mathf.Clamp(mousePos.x, -10, 10);//tp fuera del mapa
@@ -204,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Push(Vector2 pushDirection, float pushForce)//
     {
-        isBeingPushed = true;
+        isPushed = true;
         pushEndTime = Time.time + pushDuration;
 
         rb.velocity = pushDirection * pushForce;
@@ -217,6 +232,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetTrigger("isTeleporting");
 
+            tpAudioSource.Play();
 
             Vector2 teleportPosition = mousePos;
             teleportPosition.x = Mathf.Clamp(teleportPosition.x, -10, 10);

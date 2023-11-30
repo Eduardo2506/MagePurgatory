@@ -35,26 +35,59 @@ public class PantallCompleta : MonoBehaviour
     {
         resolutiones = Screen.resolutions;
         dropdownResolutions.ClearOptions();
-        List<string> opciones = new List <string>();
+        List<string> opciones = new List<string>();
         int resolucionActual = 0;
 
         for (int i = 0; i < resolutiones.Length; i++)
         {
             string opcion = resolutiones[i].width + " x " + resolutiones[i].height;
-            opciones.Add(opcion);
+
+            // Verificar si la opción ya está en la lista antes de agregarla
+            if (!opciones.Contains(opcion))
+            {
+                opciones.Add(opcion);
+            }
 
             if (Screen.fullScreen && resolutiones[i].width == Screen.currentResolution.width && resolutiones[i].height == Screen.currentResolution.height)
             {
                 resolucionActual = i;
             }
-
         }
+
+        // Limpiar las opciones antes de agregar nuevas
+        dropdownResolutions.ClearOptions();
+
         dropdownResolutions.AddOptions(opciones);
         dropdownResolutions.value = resolucionActual;
         dropdownResolutions.RefreshShownValue();
 
         dropdownResolutions.value = PlayerPrefs.GetInt("numeroResolucion", 0);
     }
+    //public void RevisarResoluciones()
+    //{
+    //    resolutiones = Screen.resolutions;
+    //    dropdownResolutions.ClearOptions();
+    //    List<string> opciones = new List <string>();
+    //    int resolucionActual = 0;
+
+    //    for (int i = 0; i < resolutiones.Length; i++)
+    //    {
+    //        string opcion = resolutiones[i].width + " x " + resolutiones[i].height;
+    //        opciones.Add(opcion);
+
+    //        if (Screen.fullScreen && resolutiones[i].width == Screen.currentResolution.width && resolutiones[i].height == Screen.currentResolution.height)
+    //        {
+    //            resolucionActual = i;
+    //        }
+
+    //    }
+
+    //    dropdownResolutions.AddOptions(opciones);
+    //    dropdownResolutions.value = resolucionActual;
+    //    dropdownResolutions.RefreshShownValue();
+
+    //    dropdownResolutions.value = PlayerPrefs.GetInt("numeroResolucion", 0);
+    //}
     public void CambiarResolucion(int indiceResolucion)
     {
         PlayerPrefs.SetInt("numeroResolucion", dropdownResolutions.value);

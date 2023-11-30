@@ -104,7 +104,7 @@ MonoBehaviour:
   maxHealth: 35
   currentHealth: 0
   dropVida: {fileID: 320955536240043508, guid: c7caeb32182e32c4da2c38de34756c10, type: 3}
-  dropProbability: 0.8
+  dropProbability: 0.6
 --- !u!114 &2218850204447972513
 MonoBehaviour:
   m_ObjectHideFlags: 0

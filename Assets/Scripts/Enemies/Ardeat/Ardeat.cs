@@ -10,25 +10,33 @@ public class Ardeat : MonoBehaviour
     public float fireballCooldown = 5f;
 
 
-    private Transform player;
+    //private Transform player;
     public bool canShoot = false;
 
     public float initialDelay = 10f;
 
-    private SpriteRenderer spriteRenderer;
+    //private SpriteRenderer spriteRenderer;
 
     private bool isSlowed = false; 
     private float originalMoveSpeed;
 
     private bool isFrozen = false;
 
+    [SerializeField] private SpriteRenderer render;
+    private Transform player;
+    
+    [SerializeField] private float distance;
+
+    private AudioSource followAudioSource;
+
     private void Start()
     {
-        originalMoveSpeed = moveSpeed; 
+        followAudioSource = GetComponent<AudioSource>();
+        originalMoveSpeed = moveSpeed;
 
         //currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Inicia el disparo de fuego en un bucle.
         //InvokeRepeating("ShootFireball", 0f, fireballCooldown);
@@ -40,19 +48,35 @@ public class Ardeat : MonoBehaviour
         if (!isFrozen)
         {
             Vector2 direction = player.position - transform.position;
-            direction.Normalize();
+            Vector2 point = (Vector2)player.position - (distance * direction.normalized);
 
-            if (direction.x < 0)
+            transform.position = Vector2.MoveTowards(transform.position, point, moveSpeed * Time.deltaTime);
+
+            if (direction.x > 0) render.flipX = false;
+            if (direction.x < 0) render.flipX = true;
+
+            if (!followAudioSource.isPlaying)
             {
-                spriteRenderer.flipX = true;
+                followAudioSource.Play();
             }
-            else
-            {
-                spriteRenderer.flipX = false;
-            }
+            //Vector2 direction = player.position - transform.position;
+            //direction.Normalize();
 
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            //if (direction.x < 0)
+            //{
+            //    spriteRenderer.flipX = true;
+            //}
+            //else
+            //{
+            //    spriteRenderer.flipX = false;
+            //}
 
+            //transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            followAudioSource.Pause();
         }
         //Vector2 direction = player.position - transform.position;
         //direction.Normalize();

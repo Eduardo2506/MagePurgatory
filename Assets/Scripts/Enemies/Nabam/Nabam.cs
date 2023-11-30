@@ -20,8 +20,11 @@ public class Nabam : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    private AudioSource followAudioSource;
+
     private void Start()
     {
+        followAudioSource = GetComponent<AudioSource>();
         originalMoveSpeed = moveSpeed;
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -54,6 +57,14 @@ public class Nabam : MonoBehaviour
             {
                 Explode();
             }
+            if (!followAudioSource.isPlaying)
+            {
+                followAudioSource.Play();
+            }
+        }
+        else
+        {
+            followAudioSource.Pause();
         }
        
     }

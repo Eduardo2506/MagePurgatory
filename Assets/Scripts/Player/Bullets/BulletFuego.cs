@@ -28,12 +28,24 @@ public class BulletFuego : MonoBehaviour
             lifeNabam.TakeDamage(burnDamage);
             Destroy(gameObject);
         }
+        NabumTutorialLife tutorialNabumLife = collision.gameObject.GetComponent<NabumTutorialLife>();
+        if (tutorialNabumLife != null)
+        {
+            tutorialNabumLife.TakeDamage(damage);
+            Destroy(gameObject);
+        }
 
         BalrogLife balrogLife = collision.gameObject.GetComponent<BalrogLife>();
         if (balrogLife != null)
         {
             balrogLife.TakeDamage(damage);
             balrogLife.TakeDamage(burnDamage);
+            Destroy(gameObject);
+        }
+        BalroLifeTutorial balrogLifeTutorial = collision.gameObject.GetComponent<BalroLifeTutorial>();
+        if (balrogLifeTutorial != null)
+        {
+            balrogLifeTutorial.TakeDamage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Paredes"))
@@ -51,6 +63,12 @@ public class BulletFuego : MonoBehaviour
         {
             ardeatLive.TakeDamage(damage);
             ardeatLive.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        ArdeatLifeTutorial ardeatLifeTutorial = collision.gameObject.GetComponent<ArdeatLifeTutorial>();
+        if (ardeatLifeTutorial != null)
+        {
+            ardeatLifeTutorial.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
