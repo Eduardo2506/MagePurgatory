@@ -48,10 +48,10 @@ public class FireBall : MonoBehaviour
                     movPlayer.healthBar.fillAmount = Mathf.Max(0, movPlayer.healthBar.fillAmount - damagePercentage);
                 }
             }
-            Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
-            float pushForce = 1.5f;
+            //Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
+            ////float pushForce = 1.5f;
 
-            collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
+            ////collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
 
      
             Destroy(gameObject);

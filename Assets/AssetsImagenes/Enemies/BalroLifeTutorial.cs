@@ -9,14 +9,27 @@ public class BalroLifeTutorial : MonoBehaviour
     public GameObject dropVida;
     public float dropProbability = 0.8f;
 
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private Coroutine damageCoroutine;
+
     private void Start()
     {
         currentHealth = maxHealth;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (damageCoroutine != null)
+        {
+            StopCoroutine(damageCoroutine);
+        }
+
+        damageCoroutine = StartCoroutine(DamageFlash());
+
 
         if (currentHealth <= 0)
         {
@@ -24,6 +37,18 @@ public class BalroLifeTutorial : MonoBehaviour
         }
     }
 
+    private IEnumerator DamageFlash()
+    {
+        Color damageColor = Color.black;
+
+        for (int i = 0; i < 5; i++)
+        {
+            spriteRenderer.color = damageColor;
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
     private void Die()
     {
         if (Random.value <= dropProbability)
