@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RondasController : MonoBehaviour
@@ -67,13 +68,30 @@ public class RondasController : MonoBehaviour
 
         //enemy.maxEnemies += maxEnemiesPerRound;
 
-        if (ronda >= 8)
+        if (ronda >= 3)//las rondas seran -uno de la que coloque, 8
         {
-            yield return new WaitForSeconds(3);
-            panelVictoria.SetActive(true);
-            Debug.Log("ganaste");
-     
-            yield break;
+            if (SceneManager.GetActiveScene().name == "Game")
+            {
+                Debug.Log("Ganaste la ronda final del nivel 1");
+                enemy.panelToActivate.SetActive(false);//
+
+                yield return new WaitForSeconds(2);//
+                Time.timeScale = 1f;//
+                SceneManager.LoadScene("Nivel2");
+                yield break;
+                //SceneManager.LoadScene("Nivel 2");//
+            }
+            else if (SceneManager.GetActiveScene().name == "Nivel2")
+            {
+                Debug.Log("Ganaste la ronda final del nivel 2");
+                enemy.panelToActivate.SetActive(false);
+
+                yield return new WaitForSeconds(2);
+                Time.timeScale = 1f;
+                panelVictoria.SetActive(true);
+                Debug.Log("ganaste");
+                yield break;
+            }
         }
 
         //aparecer cartas
