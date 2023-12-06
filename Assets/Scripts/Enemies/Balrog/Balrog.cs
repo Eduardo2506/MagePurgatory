@@ -82,7 +82,7 @@ public class Balrog : MonoBehaviour
             //collision.gameObject.GetComponent<LifeSystem>().TakeDamage(damage);
 
             Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
-            float pushForce = 6f;
+            float pushForce = 2.5f;
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = directionPlayer * pushForce;
             collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
 

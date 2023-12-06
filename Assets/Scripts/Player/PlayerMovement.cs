@@ -87,8 +87,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (dash > 1) dash -= Time.deltaTime * moveSpeed; else dash = 1;
         //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
-        rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed) * dash;
-        animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+        if (!isPushed)
+        {
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed) * dash;
+            animator.SetBool("isWalk", (Mathf.Abs(moveInput.x) > 0 || Mathf.Abs(moveInput.y) > 0));
+        }
+
         
         if (Mathf.Abs(moveInput.x) > 0.1f || Mathf.Abs(moveInput.y) > 0.1f)
         {

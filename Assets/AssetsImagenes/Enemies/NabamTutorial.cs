@@ -106,9 +106,9 @@ public class NabamTutorial : MonoBehaviour
             playerMovement.healthBar.fillAmount = Mathf.Max(0, playerMovement.healthBar.fillAmount - damagePercentage);
         }
         // Empuja al jugador
-        Vector3 pushDirection = (player.position - transform.position).normalized;
-        float pushForce = 2f;
-        playerMovement.Push(pushDirection, pushForce);
+        //Vector3 pushDirection = (player.position - transform.position).normalized;
+        //float pushForce = 2f;
+        //playerMovement.Push(pushDirection, pushForce);
 
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
 

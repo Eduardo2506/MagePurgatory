@@ -63,13 +63,14 @@ public class BalrogLife : MonoBehaviour
         animDead.SetBool("isDead", setDead);
         balro.enabled = false;
         //Invoke("Desactivar", 1.22f);
-        //Destroy(gameObject, 1.22f);
-        gameObject.SetActive(false);
+        Destroy(gameObject, 1.22f);
+        //gameObject.SetActive(false);
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         if (spawner != null)
         {
             spawner.EnemyKilled();
         }
+        Destroy(this);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void Desactivar()
