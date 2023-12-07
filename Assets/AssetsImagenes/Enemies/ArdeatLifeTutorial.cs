@@ -13,8 +13,14 @@ public class ArdeatLifeTutorial : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private Coroutine damageCoroutine;
+
+    private Animator animDead;
+    public bool setDead;
+    private ArdearTUtorial ardeatTuto;
     private void Start()
     {
+        animDead = GetComponent<Animator>();
+        ardeatTuto = FindObjectOfType<ArdearTUtorial>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         currentHealth = maxHealth;
@@ -33,6 +39,7 @@ public class ArdeatLifeTutorial : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            setDead = true;
             Die();
         }
     }
@@ -56,7 +63,12 @@ public class ArdeatLifeTutorial : MonoBehaviour
         {
             DropObject();
         }
-        gameObject.SetActive(false);
+        animDead.SetBool("isDead", setDead);
+        ardeatTuto.enabled = false;
+        Destroy(gameObject, 1.22f);
+        Destroy(this);
+        ardeatTuto.DisableShooting();
+        //gameObject.SetActive(false);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()

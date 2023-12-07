@@ -68840,6 +68840,8 @@ MonoBehaviour:
   cetroRayoController: {fileID: 0}
   cetroTierraController: {fileID: 0}
   dashAudioSource: {fileID: 0}
+  walkAudioSource: {fileID: 0}
+  tpAudioSource: {fileID: 0}
 --- !u!61 &1168664297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68885,6 +68887,7 @@ MonoBehaviour:
   button1: {fileID: 0}
   button2: {fileID: 0}
   healthBar: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!1 &1172887710
 GameObject:
   m_ObjectHideFlags: 0
@@ -80721,6 +80724,7 @@ MonoBehaviour:
   textoRonda: {fileID: 0}
   textoContador: {fileID: 0}
   panelVictoria: {fileID: 0}
+  fade: {fileID: 0}
 --- !u!4 &1634395353
 Transform:
   m_ObjectHideFlags: 0

@@ -47,7 +47,6 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator ShowContador()
     {
-        // Mostrar la cuenta regresiva durante 3 segundos.
         textoContador.gameObject.SetActive(true);
 
         for (int i = 3; i >= 1; i--)
@@ -58,7 +57,6 @@ public class EnemySpawner : MonoBehaviour
 
         textoContador.gameObject.SetActive(false);
 
-        // Comenzar a spawnear enemigos.
         //StartCoroutine(SpawnEnemiesWithInterval());
 
         //ActivateEleccion();
@@ -110,7 +108,18 @@ public class EnemySpawner : MonoBehaviour
         //    SpawnEnemy();
         //}
     }
-
+    public void PlayerDied()
+    {
+        StopAllCoroutines();
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        currentEnemyType = 0;
+        currentEnemies = 0;
+        enemiesActuales = 0;
+    }
     public IEnumerator SpawnEnemy()
     {
         int totalEnemiesSpawned = 0;

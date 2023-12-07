@@ -19,10 +19,13 @@ public class Balrog : MonoBehaviour
     private float originalMoveSpeed;
 
     private bool isFrozen = false;
+    private AudioSource followAudioSource;
 
 
     private void Start()
     {
+        followAudioSource = GetComponent<AudioSource>();
+
         originalMoveSpeed = moveSpeed;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,6 +49,14 @@ public class Balrog : MonoBehaviour
             }
 
             transform.Translate(direction * moveSpeed * Time.deltaTime);
+            if (!followAudioSource.isPlaying)
+            {
+                followAudioSource.Play();
+            }
+        }
+        else
+        {
+            followAudioSource.Pause();
         }
     }
 

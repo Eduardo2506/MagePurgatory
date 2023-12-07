@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LifeSystemTutorial : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class LifeSystemTutorial : MonoBehaviour
 
     public GameObject button1;
     public GameObject button2;
+    
+    public Image healthBar;
+
 
 
     //public Animator nabumFestejo;
@@ -76,9 +80,24 @@ public class LifeSystemTutorial : MonoBehaviour
         button1.SetActive(true);
         button2.SetActive(true);
     }
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+        UpdateHealthBar();
+
+    }
+    public void UpdateHealthBar()
+    {
+        if (healthBar != null)
+        {
+            float healthRatio = (float)currentHealth / maxHealth;
+
+            healthBar.fillAmount = healthRatio;
+        }
+    }
     public void RestartScene()
     {
-        // Obtén el nombre de la escena actual y cárgala de nuevo.
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }

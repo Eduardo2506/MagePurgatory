@@ -13,10 +13,10 @@ public class PowerUpController : MonoBehaviour
 
     [SerializeField] private EnemySpawner panel;
 
-    public Image image; 
+    public Image image;
     private void Start()
     {
-        Debug.Log(image.name);
+        //Debug.Log(image.name);
     }
     public void PowerUps()
     {

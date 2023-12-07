@@ -21,8 +21,14 @@ public class ArdearTUtorial : MonoBehaviour
     private float originalMoveSpeed;
 
     private bool isFrozen = false;
+    
+    [SerializeField] private float distance;
+
+    private AudioSource followAudioSource;
     private void Start()
     {
+        followAudioSource = GetComponent<AudioSource>();
+
         originalMoveSpeed = moveSpeed;
 
         //currentHealth = maxHealth;
@@ -39,19 +45,35 @@ public class ArdearTUtorial : MonoBehaviour
         if (!isFrozen)
         {
             Vector2 direction = player.position - transform.position;
-            direction.Normalize();
+            Vector2 point = (Vector2)player.position - (distance * direction.normalized);
 
-            if (direction.x < 0)
+            transform.position = Vector2.MoveTowards(transform.position, point, moveSpeed * Time.deltaTime);
+
+            if (direction.x > 0) spriteRenderer.flipX = false;
+            if (direction.x < 0) spriteRenderer.flipX = true;
+
+            if (!followAudioSource.isPlaying)
             {
-                spriteRenderer.flipX = true;
+                followAudioSource.Play();
             }
-            else
-            {
-                spriteRenderer.flipX = false;
-            }
+            //Vector2 direction = player.position - transform.position;
+            //direction.Normalize();
 
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
+            //if (direction.x < 0)
+            //{
+            //    spriteRenderer.flipX = true;
+            //}
+            //else
+            //{
+            //    spriteRenderer.flipX = false;
+            //}
 
+            //transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            followAudioSource.Pause();
         }
         //Vector2 direction = player.position - transform.position;
         //direction.Normalize();

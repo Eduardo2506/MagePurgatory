@@ -17,6 +17,7 @@ public class LifeSystem : MonoBehaviour
     public Image healthBar;
 
     private Color originalColor; 
+    public EnemySpawner enemySpawner;
 
     private void Start()
     {
@@ -55,6 +56,10 @@ public class LifeSystem : MonoBehaviour
 
     private void Die()
     {
+        if (enemySpawner != null)
+        {
+            enemySpawner.PlayerDied();
+        }
 
         panelPerdiste.SetActive(true);
         StartCoroutine(ShowButtonsAfterDelay(2.0f));
@@ -83,6 +88,7 @@ public class LifeSystem : MonoBehaviour
         }
     }
 }
+
 
 //{
 //    public int maxHealth = 100;

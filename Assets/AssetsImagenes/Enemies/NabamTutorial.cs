@@ -19,9 +19,16 @@ public class NabamTutorial : MonoBehaviour
     private bool isFrozen = false;
 
     private PlayerMovement playerMovement;
+    private CircleCollider2D colider;
+    private AudioSource followAudioSource;
+
+
 
     private void Start()
     {
+        colider = GetComponent<CircleCollider2D>();
+        followAudioSource = GetComponent<AudioSource>();
+
         originalMoveSpeed = moveSpeed;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -54,6 +61,14 @@ public class NabamTutorial : MonoBehaviour
             {
                 Explode();
             }
+            if (!followAudioSource.isPlaying)
+            {
+                followAudioSource.Play();
+            }
+        }
+        else
+        {
+            followAudioSource.Pause();
         }
 
     }
@@ -112,6 +127,8 @@ public class NabamTutorial : MonoBehaviour
 
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
 
+        colider.enabled = false;
+        Destroy(this);
 
         Destroy(gameObject);
     }

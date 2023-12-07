@@ -16,8 +16,11 @@ public class BalrogLife : MonoBehaviour
     private Animator animDead;
     public bool setDead;
     private Balrog balro;
+
+    private PolygonCollider2D colider;
     private void Start()
     {
+        colider = GetComponent<PolygonCollider2D>();
         balro = FindObjectOfType<Balrog>();
         animDead = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -70,6 +73,7 @@ public class BalrogLife : MonoBehaviour
         {
             spawner.EnemyKilled();
         }
+        colider.enabled = false;
         Destroy(this);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }

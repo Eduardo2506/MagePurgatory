@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LifeNabam : MonoBehaviour
@@ -13,8 +14,18 @@ public class LifeNabam : MonoBehaviour
     private Color originalColor;
     private Coroutine damageCoroutine;
 
+
+    private Animator animDead;
+    public bool setDead;
+    private Nabam nabam;
+
+    private CircleCollider2D colider;
+
     private void Start()
     {
+        colider = GetComponent<CircleCollider2D>();
+        animDead = GetComponent<Animator>();
+        nabam = FindObjectOfType<Nabam>();
         currentHealth = maxHealth;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color;
@@ -33,6 +44,7 @@ public class LifeNabam : MonoBehaviour
         
         if (currentHealth <= 0)
         {
+            setDead = true;
             Die();
         }
     }
@@ -55,13 +67,19 @@ public class LifeNabam : MonoBehaviour
         {
             DropObject();
         }
+        animDead.SetBool("isDead", setDead);
+        nabam.enabled = false;
+        Destroy(gameObject, 1.22f);
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         if (spawner != null)
         {
             spawner.EnemyKilled();
         }
+        colider.enabled = false;
+        Destroy(this);
+        
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()

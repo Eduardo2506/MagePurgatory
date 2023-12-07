@@ -13,8 +13,16 @@ public class BalroLifeTutorial : MonoBehaviour
     private Color originalColor;
     private Coroutine damageCoroutine;
 
+    private Animator animDead;
+    public bool setDead;
+    private Balrog balroTutorial;
+
+    private PolygonCollider2D colider;
     private void Start()
     {
+        colider = GetComponent<PolygonCollider2D>();
+        animDead = GetComponent<Animator>();
+        balroTutorial = FindObjectOfType<Balrog>();
         currentHealth = maxHealth;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color;
@@ -33,6 +41,7 @@ public class BalroLifeTutorial : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            setDead = true;
             Die();
         }
     }
@@ -55,7 +64,12 @@ public class BalroLifeTutorial : MonoBehaviour
         {
             DropObject();
         }
-        gameObject.SetActive(false);
+        animDead.SetBool("isDead", setDead);
+        balroTutorial.enabled = false;
+        Destroy(gameObject, 1.22f);
+        colider.enabled = false;
+        Destroy(this);
+        //gameObject.SetActive(false);
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()

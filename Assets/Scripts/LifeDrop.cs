@@ -21,6 +21,12 @@ public class LifeDrop : MonoBehaviour
                 playerLife.Heal(healthAmount);
                 Destroy(gameObject);
             }
+            LifeSystemTutorial playerLifeTutorial = other.GetComponent<LifeSystemTutorial>();
+            if (playerLifeTutorial != null && playerLifeTutorial.currentHealth < playerLifeTutorial.maxHealth)
+            {
+                playerLifeTutorial.Heal(healthAmount);
+                Destroy(gameObject);
+            }
             Destroy(gameObject);
         }
         //Destroy(gameObject);

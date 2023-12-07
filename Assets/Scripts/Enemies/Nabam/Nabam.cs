@@ -22,8 +22,11 @@ public class Nabam : MonoBehaviour
 
     private AudioSource followAudioSource;
 
+    private CircleCollider2D colider;
+
     private void Start()
     {
+        colider = GetComponent<CircleCollider2D>();
         followAudioSource = GetComponent<AudioSource>();
         originalMoveSpeed = moveSpeed;
         
@@ -102,7 +105,7 @@ public class Nabam : MonoBehaviour
     private IEnumerator ResetSpeedAfterDelay()
     {
         yield return new WaitForSeconds(4f);
-        // Restaura la velocidad original y la variable de ralentización
+        //Restaura la velocidad original
         moveSpeed = originalMoveSpeed;
         isSlowed = false;
     }
@@ -116,7 +119,7 @@ public class Nabam : MonoBehaviour
             float damagePercentage = (float)explosionDamage / (float)lifePlayer.maxHealth;
             playerMovement.healthBar.fillAmount = Mathf.Max(0, playerMovement.healthBar.fillAmount - damagePercentage);
         }
-        // Empuja al jugador
+        //Empuja al jugador
         //Vector3 pushDirection = (player.position - transform.position).normalized;
         //float pushForce = 2f;
         //playerMovement.Push(pushDirection, pushForce);
@@ -127,7 +130,8 @@ public class Nabam : MonoBehaviour
             spawner.EnemyKilled();
         }
         //GetComponentInParent<EnemySpawner>().EnemyKilled();
-
+        colider.enabled = false;
+        Destroy(this);
 
         Destroy(gameObject);
     }

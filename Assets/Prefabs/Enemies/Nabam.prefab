@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 972536833
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 1389849334, guid: 761b68721fe741e409bcf6ec6d2cb1ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.9882353}
   m_FlipX: 0
@@ -104,7 +104,6 @@ MonoBehaviour:
   moveSpeed: 5
   explosionRadius: 2
   explosionDamage: 10
-  walkAudioSource: {fileID: 0}
 --- !u!114 &7947065059788424542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +120,7 @@ MonoBehaviour:
   currentHealth: 0
   dropVida: {fileID: 320955536240043508, guid: c7caeb32182e32c4da2c38de34756c10, type: 3}
   dropProbability: 0.6
+  setDead: 0
 --- !u!58 &7958393970655151033
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,9 +134,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006394565, y: -0.0089098215}
+  m_Offset: {x: -0.006394565, y: 0.011876941}
   serializedVersion: 2
-  m_Radius: 0.29149663
+  m_Radius: 0.5513309
 --- !u!95 &427838678325220907
 Animator:
   serializedVersion: 5

@@ -21,6 +21,10 @@ public class FireBall : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Estatua"))
+        {
+            Destroy(gameObject);
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
      
@@ -50,9 +54,12 @@ public class FireBall : MonoBehaviour
             }
             //Vector2 directionPlayer = (collision.transform.position - transform.position).normalized;
             ////float pushForce = 1.5f;
-
             ////collision.gameObject.GetComponent<PlayerMovement>().Push(directionPlayer, pushForce);
-
+            //GridObject gridObject = collision.gameObject.GetComponent<GridObject>();
+            //if (gridObject != null)
+            //{
+            //    gridObject.OnBulletCollision();
+            //}
      
             Destroy(gameObject);
         }

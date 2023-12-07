@@ -3,6 +3,8 @@ using UnityEngine;
 public class Instrucciones : MonoBehaviour
 {
     public GameObject interactionPanel;
+    public GameObject panelPrimero;
+    public GameObject panelSegundo;
     private bool playerInRange = false;
 
     private void Update()
@@ -47,7 +49,22 @@ public class Instrucciones : MonoBehaviour
         // Alternar la visibilidad del panel
         interactionPanel.SetActive(!interactionPanel.activeSelf);
     }
-
+    public void SiguienteVerPrefabVida()
+    {
+        panelPrimero.SetActive(false);
+        panelSegundo.SetActive(true);
+    }
+    public void RegresarSpawnerDeEnemigos()
+    {
+        panelSegundo.SetActive(false);
+        panelPrimero.SetActive(true);
+    }
+    public void VolverSinLosDosPaneles()
+    {
+        Time.timeScale = 1f;
+        panelSegundo.SetActive(false);
+        panelPrimero.SetActive(false);
+    }
     public void Volver()
     {
         playerInRange = false;

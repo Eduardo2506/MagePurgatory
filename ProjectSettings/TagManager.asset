@@ -12,6 +12,7 @@ TagManager:
   - Enemies
   - PowerUps
   - Paredes
+  - Estatua
   layers:
   - Default
   - TransparentFX

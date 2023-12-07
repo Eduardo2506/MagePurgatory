@@ -18,7 +18,9 @@ public class RondasController : MonoBehaviour
 
     public TextMeshProUGUI  textoRonda;
     public TextMeshProUGUI textoContador;
-    public GameObject panelVictoria;   
+    public GameObject panelVictoria;
+
+    public LevelChanger fade;
     private IEnumerator Start()
     {
         textoRonda.transform.parent.gameObject.SetActive(true);
@@ -38,10 +40,6 @@ public class RondasController : MonoBehaviour
         }
         textoContador.gameObject.SetActive(false);
 
-        //Subida max de vida
-        //playerLife.currentHealth = playerLife.maxHealth;
-        //playerLife.UpdateHealthBar();
-
         //spawn
         Coroutine corutina = StartCoroutine(enemy.SpawnEnemy());
         
@@ -50,25 +48,16 @@ public class RondasController : MonoBehaviour
         StopCoroutine(corutina);
         ronda++;
 
-        // Ajustar los enemigos y los valores en enemyTypeCounts manualmente.
-        int incremento1 = 1; // Personaliza estos valores según tus necesidades.
+        //Ajustar los enemigos y los valores en enemyTypeCounts
+        int incremento1 = 1;
         int incremento2 = 1;
         int incremento3 = 1;
 
         enemy.maxEnemies += incremento1 + incremento2 + incremento3;
         enemy.enemyTypeCounts = CalcularEnemyTypeCounts(enemy.maxEnemies, incremento1, incremento2, incremento3);
-        //// Aumentar los enemigos y ajustar los valores en enemyTypeCounts.
-        //int aumentoDeEnemigos = 3; // Puedes ajustar este valor según tus necesidades.
-        //enemy.maxEnemies += aumentoDeEnemigos;
-
-        //// Ajustar los valores en enemyTypeCounts para que la suma sea igual a maxEnemies.
-        //int[] nuevosEnemyTypeCounts = CalcularEnemyTypeCounts(enemy.maxEnemies);
-        //enemy.enemyTypeCounts = nuevosEnemyTypeCounts;
 
 
-        //enemy.maxEnemies += maxEnemiesPerRound;
-
-        if (ronda >= 3)//las rondas seran -uno de la que coloque, 8
+        if (ronda >= 7)//las rondas seran -uno de la que ponga, 8
         {
             if (SceneManager.GetActiveScene().name == "Game")
             {
@@ -77,7 +66,13 @@ public class RondasController : MonoBehaviour
 
                 yield return new WaitForSeconds(2);//
                 Time.timeScale = 1f;//
+                //yield return new WaitForSeconds(5);
                 SceneManager.LoadScene("Nivel2");
+                if (fade != null)
+                {
+                    fade.NexToNivel2();//
+                }
+                
                 yield break;
                 //SceneManager.LoadScene("Nivel 2");//
             }
@@ -94,7 +89,7 @@ public class RondasController : MonoBehaviour
             }
         }
 
-        //aparecer cartas
+        //Aparecer cartas
         yield return new WaitForSeconds(4);
         yield return new WaitUntil(() => enemy.panelToActivate.activeSelf == false);
         StartCoroutine(Start());
@@ -103,33 +98,15 @@ public class RondasController : MonoBehaviour
     {
         int[] nuevosEnemyTypeCounts = new int[enemy.enemyTypeCounts.Length];
 
-        // Asignar incrementos personalizados a cada valor en enemyTypeCounts.
+        //Incrementar valores en enemyTypeCounts
         nuevosEnemyTypeCounts[0] = enemy.enemyTypeCounts[0] + incremento1;
         nuevosEnemyTypeCounts[1] = enemy.enemyTypeCounts[1] + incremento2;
         nuevosEnemyTypeCounts[2] = enemy.enemyTypeCounts[2] + incremento3;
 
-        // Asegurar que la suma sea igual a maxEnemies.
+        //Suma sea igual a maxEnemies
         int diferencia = maxEnemies - nuevosEnemyTypeCounts.Sum();
         nuevosEnemyTypeCounts[2] += diferencia;
 
         return nuevosEnemyTypeCounts;
     }
-    // Función para calcular los nuevos valores en enemyTypeCounts.
-    //private int[] CalcularEnemyTypeCounts(int maxEnemies)
-    //{
-    //    // Puedes ajustar la lógica según tus necesidades.
-    //    int[] nuevosEnemyTypeCounts = new int[enemy.enemyTypeCounts.Length];
-
-    //    for (int i = 0; i < nuevosEnemyTypeCounts.Length; i++)
-    //    {
-    //        nuevosEnemyTypeCounts[i] = maxEnemies / nuevosEnemyTypeCounts.Length;
-    //    }
-
-    //    // Ajustar el último valor para asegurarse de que la suma sea igual a maxEnemies.
-    //    nuevosEnemyTypeCounts[nuevosEnemyTypeCounts.Length - 1] += maxEnemies % nuevosEnemyTypeCounts.Length;
-
-    //    return nuevosEnemyTypeCounts;
-    //}
-
-
 }
