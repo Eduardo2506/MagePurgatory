@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2ad68ed9024dbe4b95be86bfb1107cc
+guid: 305b3010281e8fe4cafa8e73df32594e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TilesOriginal (1)_0
+      name: Antorcha_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 64
-        height: 64
+        width: 9
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78861e2634b7dd74ab4dc847d05ea0e3
-      internalID: -952402537
+      spriteID: ed3d0df29582edd4e9b48ed6507aba35
+      internalID: -254730836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesOriginal (1)_1
+      name: Antorcha_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 20
         y: 0
-        width: 64
-        height: 64
+        width: 9
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78f5fea19e13abb408d74bb938bbd5b2
-      internalID: 2028500353
+      spriteID: 6bf748333894ef04185a4e751b3fec6e
+      internalID: 1690371081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesOriginal (1)_2
+      name: Antorcha_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 36
         y: 0
-        width: 64
-        height: 64
+        width: 10
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +161,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c94dae1bd84bc924c9ae634cbef712dd
-      internalID: 1633244502
+      spriteID: 6c999dc65cd5d94499a23dc46e604392
+      internalID: 1192101048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antorcha_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4a7cace69d918b408e77f0bd8fa5730
+      internalID: 10229719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antorcha_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c683e5157587940bdd2c4bb4fd6e1c
+      internalID: 1304116349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Antorcha_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6145aad2198737e4a9988662bc8ceb36
+      internalID: -578050866
       vertices: []
       indices: 
       edges: []
@@ -190,9 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TilesOriginal (1)_0: -952402537
-      TilesOriginal (1)_1: 2028500353
-      TilesOriginal (1)_2: 1633244502
+      Antorcha_0: -254730836
+      Antorcha_1: 1690371081
+      Antorcha_2: 1192101048
+      Antorcha_3: 10229719
+      Antorcha_4: 1304116349
+      Antorcha_5: -578050866
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
