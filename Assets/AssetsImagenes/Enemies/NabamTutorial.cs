@@ -106,7 +106,6 @@ public class NabamTutorial : MonoBehaviour
     private IEnumerator ResetSpeedAfterDelay()
     {
         yield return new WaitForSeconds(4f);
-        // Restaura la velocidad original y la variable de ralentización
         moveSpeed = originalMoveSpeed;
         isSlowed = false;
     }
@@ -120,12 +119,6 @@ public class NabamTutorial : MonoBehaviour
             float damagePercentage = (float)explosionDamage / (float)lifePlayer.maxHealth;
             playerMovement.healthBar.fillAmount = Mathf.Max(0, playerMovement.healthBar.fillAmount - damagePercentage);
         }
-        // Empuja al jugador
-        //Vector3 pushDirection = (player.position - transform.position).normalized;
-        //float pushForce = 2f;
-        //playerMovement.Push(pushDirection, pushForce);
-
-        //GetComponentInParent<EnemySpawner>().EnemyKilled();
 
         colider.enabled = false;
         Destroy(this);

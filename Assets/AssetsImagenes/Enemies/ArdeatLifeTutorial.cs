@@ -68,8 +68,6 @@ public class ArdeatLifeTutorial : MonoBehaviour
         Destroy(gameObject, 1.22f);
         Destroy(this);
         ardeatTuto.DisableShooting();
-        //gameObject.SetActive(false);
-        //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()
     {

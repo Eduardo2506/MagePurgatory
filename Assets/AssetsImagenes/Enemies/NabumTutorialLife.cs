@@ -72,8 +72,6 @@ public class NabumTutorialLife : MonoBehaviour
         Destroy(gameObject, 1.22f);
         colider.enabled = false;
         Destroy(this);
-        //gameObject.SetActive(false);
-        //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()
     {
