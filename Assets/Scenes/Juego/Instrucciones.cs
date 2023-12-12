@@ -9,10 +9,9 @@ public class Instrucciones : MonoBehaviour
 
     private void Update()
     {
-        // Verificar la entrada de teclado para activar o desactivar el panel
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            ToggleInteractionPanel();
+            InteractionPanel();
         }
     }
 
@@ -29,24 +28,20 @@ public class Instrucciones : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            // Si el jugador sale del área, asegúrate de que el panel esté desactivado
             interactionPanel.SetActive(false);
         }
     }
 
-    private void ToggleInteractionPanel()
+    private void InteractionPanel()
     {
-        // Cambiar el estado del tiempo solo si el panel cambia de estado
         if (!interactionPanel.activeSelf)
         {
-            Time.timeScale = 0f; // Pausar el tiempo
+            Time.timeScale = 0f; 
         }
         else
         {
-            Time.timeScale = 1f; // Reanudar el tiempo
+            Time.timeScale = 1f; 
         }
-
-        // Alternar la visibilidad del panel
         interactionPanel.SetActive(!interactionPanel.activeSelf);
     }
     public void SiguienteVerPrefabVida()

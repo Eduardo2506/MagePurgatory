@@ -71,7 +71,6 @@ public class LifeNabam : MonoBehaviour
         nabam.enabled = false;
         Destroy(gameObject, 1.22f);
 
-        //gameObject.SetActive(false);
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         if (spawner != null)
         {
@@ -80,7 +79,6 @@ public class LifeNabam : MonoBehaviour
         colider.enabled = false;
         Destroy(this);
         
-        //GetComponentInParent<EnemySpawner>().EnemyKilled();
     }
     private void DropObject()
     {

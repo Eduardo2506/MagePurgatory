@@ -20,14 +20,6 @@ public class LifeSystemTutorial : MonoBehaviour
     public Image healthBar;
 
 
-
-    //public Animator nabumFestejo;
-
-    //private void Awake()
-    //{
-    //    nabumFestejo.StartPlayback();
-    //}
-
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -66,9 +58,6 @@ public class LifeSystemTutorial : MonoBehaviour
     private void Die()
     {
         RestartScene();
-        //panelPerdiste.SetActive(true);
-        //gameObject.SetActive(false);
-
         StartCoroutine(ShowButtonsAfterDelay(2.0f));
     }
     private IEnumerator ShowButtonsAfterDelay(float delay)

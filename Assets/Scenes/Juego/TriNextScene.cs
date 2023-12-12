@@ -16,16 +16,11 @@ public class TriNextScene : MonoBehaviour
             Time.timeScale = 0f;
             nextGame.SetActive(true);
         }
-        //if (other.CompareTag("Player"))
-        //{
-        //    SceneManager.LoadScene("Game");
-        //}
     }
     public void PasarNivel()
     {
         SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
-        //nextGame.SetActive(false);
     }
     public void NoPasarNivel()
     {
@@ -33,22 +28,3 @@ public class TriNextScene : MonoBehaviour
         Time.timeScale = 1f;
     }
 }
-//{
-
-
-//private void OnTriggerEnter2D(Collider2D other)
-//{
-//    if (other.CompareTag("Player"))
-//    {
-//        playerInRange = true;
-//        Time.timeScale = 0f;
-//        interactionPanel.SetActive(true);
-//    }
-//}
-//public void Volver()
-//{
-//    playerInRange = false;
-//    Time.timeScale = 1f;
-//    interactionPanel.SetActive(false);
-//}
-//}

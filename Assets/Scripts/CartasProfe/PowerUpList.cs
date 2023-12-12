@@ -31,12 +31,5 @@ public class PowerUpList : ScriptableObject
                 selectedIndices.Add(randomInex);
             }
         }
-        //for (int i = 0; i < lenght; i++)
-        //{
-        //    int randomIndex = random.Next(0, list.Length);
-        //    randomPowerUps.Add(list[randomIndex]);
-        //}
-        return randomPowerUps.ToArray();
-        //return new PowerUps[] { list[0], list[1], list[2] };//random
-    }
+        return randomPowerUps.ToArray();    }
 }

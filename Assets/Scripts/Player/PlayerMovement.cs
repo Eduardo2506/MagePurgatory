@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
          mousePos = cam.ScreenToWorldPoint(Input.mousePosition);//
 
         if (dash > 1) dash -= Time.deltaTime * moveSpeed; else dash = 1;
-        //transform.Translate(moveInput * Time.deltaTime * moveSpeed);
         if (!isPushed)
         {
             rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed) * dash;
@@ -111,10 +110,6 @@ public class PlayerMovement : MonoBehaviour
             isPushed = false;
             rb.velocity = Vector2.zero;
         }
-        //mousePos.x = Mathf.Clamp(mousePos.x, -10, 10);//tp fuera del mapa
-
-        //Limite en y
-        //mousePos.y = Mathf.Clamp(mousePos.y, -10, 10);//tp fuera del mapa
 
         if (moveInput.x < 0)
         {
@@ -156,8 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (energyBar.fillAmount < 1.0f && Time.time - lastEnergyUsedTime >= energyRechargeDelay)//
         {
-            // Recargar la barra de energía después de 10 segundos
-            float rechargeRate = 0.1f; // Ajusta la velocidad de recarga
+            float rechargeRate = 0.1f; 
             energyBar.fillAmount = Mathf.Clamp(energyBar.fillAmount + (rechargeRate * Time.deltaTime), 0.0f, 1.0f);
         }
         if (Input.GetKeyDown(KeyCode.E) && onMesa)
@@ -264,8 +258,6 @@ public class PlayerMovement : MonoBehaviour
         float dashCostPercentage = 0.09f; //0.09f
         if (energyBar.fillAmount - dashCostPercentage >= 0)
         {
-            //Vector2 dashDirection = moveInput.normalized;
-            //rb.velocity = dashDirection * moveSpeed * 3f;
             dash = 3;
             energyBar.fillAmount -= dashCostPercentage;
 
@@ -294,13 +286,6 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = Vector2.zero;
     }
-    //private void FixedUpdate()
-    //{
-    //    if (!isDashing)
-    //    {
-    //        transform.Translate(moveInput * Time.deltaTime * moveSpeed);
-    //    }
-    //}
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Mesa"))

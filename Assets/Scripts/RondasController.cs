@@ -14,8 +14,6 @@ public class RondasController : MonoBehaviour
 
     public LifeSystem playerLife;
 
-    //private int maxEnemiesPerRound = 3;//
-
     public TextMeshProUGUI  textoRonda;
     public TextMeshProUGUI textoContador;
     public GameObject panelVictoria;
@@ -26,8 +24,6 @@ public class RondasController : MonoBehaviour
         textoRonda.transform.parent.gameObject.SetActive(true);
         enemy.currentEnemies = 0;
         enemy.currentEnemyType = 0;//
-        //enemy.enemiesActuales = 0;/////
-        //tiempo de espera al inicar
         textoRonda.text = $"Ronda: {ronda}";
         yield return new WaitForSeconds(3);
         textoContador.gameObject.SetActive(true);
@@ -48,7 +44,6 @@ public class RondasController : MonoBehaviour
         StopCoroutine(corutina);
         ronda++;
 
-        //Ajustar los enemigos y los valores en enemyTypeCounts
         int incremento1 = 1;
         int incremento2 = 1;
         int incremento3 = 1;
@@ -66,7 +61,6 @@ public class RondasController : MonoBehaviour
 
                 yield return new WaitForSeconds(2);//
                 Time.timeScale = 1f;//
-                //yield return new WaitForSeconds(5);
                 SceneManager.LoadScene("Nivel2");
                 if (fade != null)
                 {
@@ -74,7 +68,6 @@ public class RondasController : MonoBehaviour
                 }
                 
                 yield break;
-                //SceneManager.LoadScene("Nivel 2");//
             }
             else if (SceneManager.GetActiveScene().name == "Nivel2")
             {
@@ -98,12 +91,10 @@ public class RondasController : MonoBehaviour
     {
         int[] nuevosEnemyTypeCounts = new int[enemy.enemyTypeCounts.Length];
 
-        //Incrementar valores en enemyTypeCounts
         nuevosEnemyTypeCounts[0] = enemy.enemyTypeCounts[0] + incremento1;
         nuevosEnemyTypeCounts[1] = enemy.enemyTypeCounts[1] + incremento2;
         nuevosEnemyTypeCounts[2] = enemy.enemyTypeCounts[2] + incremento3;
 
-        //Suma sea igual a maxEnemies
         int diferencia = maxEnemies - nuevosEnemyTypeCounts.Sum();
         nuevosEnemyTypeCounts[2] += diferencia;
 

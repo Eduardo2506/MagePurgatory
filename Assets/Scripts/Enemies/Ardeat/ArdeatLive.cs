@@ -63,18 +63,14 @@ public class ArdeatLive : MonoBehaviour
         }
         animDead.SetBool("isDead", setDead);
         ardeat.enabled = false;
-        //Invoke("Desactivar", 1.22f);
         Destroy(gameObject, 1.22f);
-        //gameObject.SetActive(false);
         EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
         if (spawner != null)
         {
             spawner.EnemyKilled();
         }
         Destroy(this);
-        ardeat.DisableShooting();
-        //GetComponentInParent<EnemySpawner>().EnemyKilled();
-    }
+        ardeat.DisableShooting();    }
     private void Desactivar()
     {
         gameObject.SetActive(false);

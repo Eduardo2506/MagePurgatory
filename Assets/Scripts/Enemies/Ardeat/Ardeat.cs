@@ -10,12 +10,10 @@ public class Ardeat : MonoBehaviour
     public float fireballCooldown = 5f;
 
 
-    //private Transform player;
     public bool canShoot = false;
 
     public float initialDelay = 10f;
 
-    //private SpriteRenderer spriteRenderer;
 
     private bool isSlowed = false; 
     private float originalMoveSpeed;
@@ -34,12 +32,8 @@ public class Ardeat : MonoBehaviour
         followAudioSource = GetComponent<AudioSource>();
         originalMoveSpeed = moveSpeed;
 
-        //currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Inicia el disparo de fuego en un bucle.
-        //InvokeRepeating("ShootFireball", 0f, fireballCooldown);
         Invoke("EnableShooting", initialDelay);//
     }
 
@@ -59,38 +53,12 @@ public class Ardeat : MonoBehaviour
             {
                 followAudioSource.Play();
             }
-            //Vector2 direction = player.position - transform.position;
-            //direction.Normalize();
-
-            //if (direction.x < 0)
-            //{
-            //    spriteRenderer.flipX = true;
-            //}
-            //else
-            //{
-            //    spriteRenderer.flipX = false;
-            //}
-
-            //transform.Translate(direction * moveSpeed * Time.deltaTime);
 
         }
         else
         {
             followAudioSource.Pause();
         }
-        //Vector2 direction = player.position - transform.position;
-        //direction.Normalize();
-
-        //if (direction.x < 0)
-        //{
-        //    spriteRenderer.flipX = true;
-        //}
-        //else
-        //{
-        //    spriteRenderer.flipX = false;
-        //}
-
-        //transform.Translate(direction * moveSpeed * Time.deltaTime);
 
     }
     private void OnTriggerEnter2D(Collider2D collision)

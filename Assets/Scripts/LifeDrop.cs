@@ -29,6 +29,5 @@ public class LifeDrop : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        //Destroy(gameObject);
     }
 }
