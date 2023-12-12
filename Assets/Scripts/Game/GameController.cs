@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour
         {
             lifePlayer.Heal(10);
         }
-0;
         panel.panelToActivate.SetActive(false);
     }
     public void PotenciadorDaño()

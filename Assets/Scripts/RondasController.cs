@@ -17,7 +17,7 @@ public class RondasController : MonoBehaviour
     public TextMeshProUGUI  textoRonda;
     public TextMeshProUGUI textoContador;
     public GameObject panelVictoria;
-
+    //public GameObject panelCartas;
     public LevelChanger fade;
     private IEnumerator Start()
     {
@@ -52,7 +52,7 @@ public class RondasController : MonoBehaviour
         enemy.enemyTypeCounts = CalcularEnemyTypeCounts(enemy.maxEnemies, incremento1, incremento2, incremento3);
 
 
-        if (ronda >= 7)//las rondas seran -uno de la que ponga, 8
+        if (ronda >= 6)//las rondas seran -uno de la que ponga, 8
         {
             if (SceneManager.GetActiveScene().name == "Game")
             {
@@ -76,6 +76,9 @@ public class RondasController : MonoBehaviour
 
                 yield return new WaitForSeconds(2);
                 Time.timeScale = 1f;
+                enemy.CancelInvoke("ActivatePanel");
+                //StopCoroutine(enemy.SpawnEnemy());
+                //panelCartas.SetActive(false);
                 panelVictoria.SetActive(true);
                 Debug.Log("ganaste");
                 yield break;
