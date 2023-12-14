@@ -20,10 +20,14 @@ public class Balrog : MonoBehaviour
 
     private bool isFrozen = false;
     private AudioSource followAudioSource;
+    private Animator animator;
+    //private bool isAttacking = false;
+    private string attackAnimation = "isAttacking";
 
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         followAudioSource = GetComponent<AudioSource>();
 
         originalMoveSpeed = moveSpeed;
@@ -53,12 +57,22 @@ public class Balrog : MonoBehaviour
             {
                 followAudioSource.Play();
             }
+            if (!animator.GetBool(attackAnimation))
+            {
+                animator.SetBool(attackAnimation, true);
+            }
+
         }
         else
         {
+            if (animator.GetBool(attackAnimation))
+            {
+                animator.SetBool(attackAnimation, false);
+            }
             followAudioSource.Pause();
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -67,6 +81,7 @@ public class Balrog : MonoBehaviour
             LifeSystem playerLife = collision.gameObject.GetComponent<LifeSystem>();
             if (playerLife != null)
             {
+               
                 playerLife.TakeDamage(damage);
                 
                 PlayerMovement playerMov = collision.gameObject.GetComponent<PlayerMovement>();
@@ -139,5 +154,7 @@ public class Balrog : MonoBehaviour
     {
 
         canAttack = true;
+        animator.SetBool(attackAnimation, false);
+
     }
 }

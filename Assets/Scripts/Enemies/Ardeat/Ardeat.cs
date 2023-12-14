@@ -26,9 +26,11 @@ public class Ardeat : MonoBehaviour
     [SerializeField] private float distance;
 
     private AudioSource followAudioSource;
+    private Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         followAudioSource = GetComponent<AudioSource>();
         originalMoveSpeed = moveSpeed;
 
@@ -53,11 +55,20 @@ public class Ardeat : MonoBehaviour
             {
                 followAudioSource.Play();
             }
+            if (canShoot)
+            {
+                animator.SetBool("isAttacking", true);
+            }
+            else
+            {
+                animator.SetBool("isAttacking", false);
+            }
 
         }
         else
         {
             followAudioSource.Pause();
+            animator.SetBool("isAttacking", false);
         }
 
     }
@@ -126,7 +137,8 @@ public class Ardeat : MonoBehaviour
     public void DisableShooting()
     {
         canShoot = false;
-        CancelInvoke("ShootFireball"); 
+        CancelInvoke("ShootFireball");
+        animator.SetBool("isAttacking", false);
     }
 
 }

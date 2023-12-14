@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using UnityEngine;
 
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource walkAudioSource;
     [SerializeField] private AudioSource tpAudioSource;
 
+
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -127,6 +129,8 @@ public class PlayerMovement : MonoBehaviour
             if (moveInput.magnitude > 0.1f)
             {
                 StartDash();
+
+                MovimientoCamera.Instance.MoverCamara(6, 6, dashCooldown);
             }
         }
 
@@ -136,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         //teleport
         if (Input.GetMouseButtonDown(1) && canTeleport && canTeleportTutorial)
         {
+            MovimientoCamera.Instance.MoverCamara(8, 8, 2);
             animator.SetBool("isTeleporting", false);
             TeleportToMousePosition();
             canTeleport = false;
@@ -254,7 +259,6 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         lastDashTime = Time.time;
 
-        
         float dashCostPercentage = 0.09f; //0.09f
         if (energyBar.fillAmount - dashCostPercentage >= 0)
         {
