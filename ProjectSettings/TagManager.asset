@@ -13,6 +13,7 @@ TagManager:
   - PowerUps
   - Paredes
   - Estatua
+  - opciones
   layers:
   - Default
   - TransparentFX

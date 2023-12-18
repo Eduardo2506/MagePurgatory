@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
     public bool onPowerUps;
     private bool panelPowerUpsActivo = false;
 
+    public PauseManager pause;
+
 
     [SerializeField] private CetroController cetroNormalController;
     [SerializeField] private CetroFuegoController cetroFuegoController;
@@ -159,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             float rechargeRate = 0.1f; 
             energyBar.fillAmount = Mathf.Clamp(energyBar.fillAmount + (rechargeRate * Time.deltaTime), 0.0f, 1.0f);
         }
-        if (Input.GetKeyDown(KeyCode.E) && onMesa)
+        if (Input.GetKeyDown(KeyCode.E) && onMesa && !pause.juegoPausado)
         {
             if (!panelActivo)
             {
@@ -186,9 +188,9 @@ public class PlayerMovement : MonoBehaviour
                 panelMesaCetros.SetActive(false);
                 panelActivo = false;
             }
-            
+
         }
-        if (Input.GetKeyDown(KeyCode.E) && onEnemies)
+        if (Input.GetKeyDown(KeyCode.E) && onEnemies && !pause.juegoPausado)
         {
             if (!panelEnemiesActivo)
             {
@@ -203,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
                 panelEnemiesActivo = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.E) && onPowerUps)
+        if (Input.GetKeyDown(KeyCode.E) && onPowerUps && !pause.juegoPausado)
         {
             if (!panelPowerUpsActivo)
             {

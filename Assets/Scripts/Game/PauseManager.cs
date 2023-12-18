@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     public GameObject panelPausa;
-    private bool juegoPausado = false;
+    public bool juegoPausado = false;
     public CetroController cetroNormal;
     public CetroFuegoController cetroFuego;
     public CetroHieloController cetroHielo;

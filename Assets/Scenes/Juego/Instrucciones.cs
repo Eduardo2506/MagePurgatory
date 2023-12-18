@@ -34,15 +34,16 @@ public class Instrucciones : MonoBehaviour
 
     private void InteractionPanel()
     {
-        if (!interactionPanel.activeSelf)
-        {
-            Time.timeScale = 0f; 
-        }
-        else
-        {
-            Time.timeScale = 1f; 
-        }
-        interactionPanel.SetActive(!interactionPanel.activeSelf);
+        interactionPanel.SetActive(true);
+        //if (!interactionPanel.activeSelf)
+        //{
+        //    Time.timeScale = 0f; 
+        //}
+        //else
+        //{
+        //    Time.timeScale = 1f; 
+        //}
+        //interactionPanel.SetActive(!interactionPanel.activeSelf);
     }
     public void SiguienteVerPrefabVida()
     {
